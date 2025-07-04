@@ -1,11 +1,16 @@
 import { useState, useEffect, useRef } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import { FaArrowRightLong } from "react-icons/fa6";
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import CountdownTimer from './CountdownTimer';
+import robotImage from '../../assets/robot.png';
+import manImage from '../../assets/man_win.png';
+import tieImage from '../../assets/tie.png';
+
 
 const ColorblindGame = () =>{
   // The components below are more dynamic than vars housed within UseEffect, so we define them here.
@@ -18,8 +23,12 @@ const ColorblindGame = () =>{
   const svgWidth = useRef(0);
   const svgHeight = useRef(0);
   const radius = useRef(0);
-  const [playerScore, setPlayerScore] = useState(0);
+  const [playerScore, setPlayerScore] = useState(0); // this to render
   const [computerScore, setComputerScore] = useState(0);
+  const playerScoreRef = useRef(0); // this to update and store accurately on backend
+  const computerScoreRef = useRef(0);
+  const imgRef = useRef(null);
+  const MODAL_COLOR = '#B6D5EBBF'; 
   
   // refs for HTML elements
   const svgRef = useRef(null);
@@ -58,12 +67,14 @@ const ColorblindGame = () =>{
   useEffect(() => {   // handle logistics when game ends
     if (!show && gameEndedRef.current) {
       // store game scores in localStorage for scoreboard
-      const curr_player_score = playerScore || 0;   // 0 default as precaution 
-      const curr_computer_score = computerScore || 0;
+      const curr_player_score = playerScoreRef.current;
+      const curr_computer_score = computerScoreRef.current;
       const ROUND_4 = 4;
             
       localStorage.setItem('player_score', curr_player_score);
       localStorage.setItem('computer_score', curr_computer_score); 
+
+      console.log('Stored Player score:', curr_player_score, 'Computer: ', curr_computer_score);
 
       // redirect to next round when game ends (modal is closed)
       if (roundNumber < ROUND_4) {
@@ -83,6 +94,8 @@ const ColorblindGame = () =>{
     const ROUND_1 = 1; const ROUND_2 = 2; const ROUND_3 = 3; const ROUND_4 = 4;
     const RED = 'red'; const GREEN = 'green'; const YELLOW = 'yellow';
     const RED_LABEL = 'R'; const GREEN_LABEL = 'G'; const YELLOW_LABEL = 'Y';
+    const gameKeyMessage3_4 = "Controls Key:<br>Left Mouse Button = Pop Balloons<br><br>Game Key:<br>R = Red<br>G = Green<br>Y = Yellow";
+    const gameKeyMessage1_2 = "Controls Key:<br>Left Mouse Button = Pop Balloons";
     const colors_2 = [RED, GREEN]   // never actually try to pop yellow balls
     const numBalls = 9;
     const velocity = 1; // fixed ball velocity
@@ -95,10 +108,9 @@ const ColorblindGame = () =>{
 
     let balls = [];
     let targetColor = '';
-    //let playerScore = 0;
-    // let computerScore = 0;
-    let winMessage = "WINNER IS PLAYER! 🎉 ";
-    let loseMessage = "WINNER IS COMPUTER! 😢 ";
+    let winMessage = "WINNER IS PLAYER!";
+    let tieMessage = "IT'S A TIE!";
+    let loseMessage = "WINNER IS COMPUTER!";
 
     let colors;  // adapted from how they defined colors in old version
     if (
@@ -120,27 +132,36 @@ const ColorblindGame = () =>{
 
     // display the game key
     if (roundNumber === ROUND_3 || roundNumber === ROUND_4) {
-        gameKeyRef.current.innerHTML = "Controls Key:<br>Left Mouse Button = Pop Balloons<br><br>Game Key:<br>R = Red<br>G = Green<br>Y = Yellow";
+        gameKeyRef.current.innerHTML = gameKeyMessage3_4;
     } else {
-        gameKeyRef.current.innerHTML = "Controls Key:<br>Left Mouse Button = Pop Balloons";
+        gameKeyRef.current.innerHTML = gameKeyMessage1_2;
     }
 
     /************** 
     GAME MECHANICS 
     ***************/
 
-    /*function updateScores() {
-        playerScoreRef.current.textContent = `Player: ${playerScore}`;
-        computerScoreRef.current.textContent = `Computer: ${computerScore}`;
-    }*/
-
     function stopGame() {
         if (gameEndedRef.current) return; // if game ended, do nothing
         gameEndedRef.current = true;
 
         // show popup (msg based on win/lose)
-        let didWin = playerScore > computerScore;
-        setGameOverMessage(didWin ? winMessage : loseMessage);
+        let didWin = playerScoreRef.current > computerScoreRef.current;
+        let didTie = playerScoreRef.current === computerScoreRef.current;
+        if (didTie) {
+          setGameOverMessage(tieMessage); 
+        } else {
+          setGameOverMessage(didWin ? winMessage : loseMessage);
+        }
+
+        if (didWin) {
+          imgRef.current = manImage;
+        } else if (didTie) {
+          imgRef.current = tieImage;
+        } else {
+          imgRef.current = robotImage;
+        }
+
         handleShow() // show popup
 
         // make balls inaccessible to screen readers when game ends
@@ -156,6 +177,7 @@ const ColorblindGame = () =>{
     function resetGame() {
         setTargetColor();
         createBalls();
+        // potentially set a wait here!
     }
 
     function setTargetColor() { // for the game, pick random target color that isn't yellow
@@ -225,15 +247,24 @@ const ColorblindGame = () =>{
         
             group.addEventListener('click', function () {   // click handler for the group (text + circle)
                 if (color === targetColor) {
-                    // playerScoreRef.current++;
-                    setPlayerScore(prev => prev + 1);
+                    setPlayerScore(prev => {
+                      const newScore = prev + 1;
+                      playerScoreRef.current = newScore;
+                      return newScore;
+                    });
                     resultMessageRef.current.textContent = "Correct!";
                     resultMessageRef.current.style.color = GREEN;
                 } else {
-                    // computerScore++;
-                    setComputerScore(prev => prev + 1);
-                    // playerScoreRef.current--;
-                    setPlayerScore(prev => prev - 1);
+                    setComputerScore(prev => {
+                      const newScore = prev + 1;
+                      computerScoreRef.current = newScore;
+                      return newScore;
+                    });
+                    setPlayerScore(prev => {
+                      const newScore = prev - 1;
+                      playerScoreRef.current = newScore;
+                      return newScore;
+                    });
                     resultMessageRef.current.textContent = "Wrong!";
                     resultMessageRef.current.style.color = RED;
                 }
@@ -276,8 +307,6 @@ const ColorblindGame = () =>{
     GAME LOOP 
     ***************/
     resetGameRef.current = resetGame; // setting funct
-
-    //updateScores();
     stopGameRef.current = stopGame;
     setTargetColor();
     createBalls();
@@ -315,12 +344,16 @@ const ColorblindGame = () =>{
 
       { /* Game over modal */ }
       <Modal ref={gameOverPopupRef} show={show} onHide={handleClose} size='xl' centered>
-        <Modal.Header closeButton>
-          <Modal.Title className='w-100 text-center'>Time's Up!</Modal.Title>
+        <Modal.Header style={{ backgroundColor: MODAL_COLOR}} closeButton>
+          <Modal.Title className='w-100 text-center'><h2>{gameOverMessage}</h2></Modal.Title>
         </Modal.Header>
-        <Modal.Body><p>{gameOverMessage}</p></Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>Continue to Next Round</Button>
+        <Modal.Body style={{ backgroundColor: MODAL_COLOR}}>
+          <img src={imgRef.current} alt="Game Over Image" className="img-fluid" />
+        </Modal.Body>
+        <Modal.Footer style={{ backgroundColor: MODAL_COLOR}}>
+          <Button variant='link' onClick={handleClose} style={{ color: 'black'}}>
+            <FaArrowRightLong />
+          </Button>
         </Modal.Footer>
       </Modal>
     </div>
