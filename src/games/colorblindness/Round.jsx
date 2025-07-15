@@ -6,14 +6,15 @@ import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
+// Images + icons
 import { FaArrowRightLong } from "react-icons/fa6";
-import round_1_img from '../../assets/round1_img.png';
-import round_2_img from '../../assets/round2_img.png';
-import round_3_img from '../../assets/round3_img.png';
-import round_4_img from '../../assets/round4_img.png';
-import round_2_bubble from '../../assets/round2_bubble.png';
-import round_3_bubble from '../../assets/round3_bubble.png';
-import round_4_bubble from '../../assets/round4_bubble.png';
+import round_1_img from '../../assets/colorblindness/round1_img.png';
+import round_2_img from '../../assets/colorblindness/round2_img.png';
+import round_3_img from '../../assets/colorblindness/round3_img.png';
+import round_4_img from '../../assets/colorblindness/round4_img.png';
+import round_2_bubble from '../../assets/colorblindness/round2_bubble.png';
+import round_3_bubble from '../../assets/colorblindness/round3_bubble.png';
+import round_4_bubble from '../../assets/colorblindness/round4_bubble.png';
 
 
 

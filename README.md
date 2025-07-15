@@ -1,7 +1,8 @@
 # ♿️ Accessible Games App
 
 This project was built in a [React+Vite JS framework](https://vite.dev/guide/#scaffolding-your-first-vite-project) to be dynamic and screen-reader friendly. The project houses several games demonstrating challenges faced by individuals with particular disabilities online, using colorful animations to teach K-12 and university students about the importance of accessibility in design.
-The app is hosted at [gooddesignforall.com](https://gooddesignforall.com/)
+
+The entire project is hosted at [gooddesignforall.com](https://gooddesignforall.com/). This React App is specifically hosted at [gooddesignforall.com/ReactTest](https://gooddesignforall.com/ReactTest/).
 
 ## 🚀 Getting Started
 
@@ -27,12 +28,15 @@ npm install
 npm run dev
 ```
 
-### (Optional) Host App
+### Hosting the App
 - If you would like to build the project to statically deploy it online via a server (e.g., FTP), run the following command to populate a dist folder with those build files:
 
 ```bash
 npm run build
 ```
+
+- Following the build, React will create a folder named `dist`. 
+- This folder houses all the static assets you need to host the app on the server. Be sure to upload the contents of this folder (not `dist` itself!) into the server via FileZilla (on Mac), WinSCP (on Windows), etc
 
 ## 📝 Notes for Other Developers
 

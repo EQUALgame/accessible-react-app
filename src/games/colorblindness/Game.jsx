@@ -6,7 +6,7 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
-import CountdownTimer from './CountdownTimer';
+import CountdownTimer from '../../game_tools/CountdownTimer';
 import robotImage from '../../assets/robot.png';
 import manImage from '../../assets/man_win.png';
 import tieImage from '../../assets/tie.png';
@@ -64,17 +64,19 @@ const ColorblindGame = () =>{
     };
   }, []);
 
-  useEffect(() => {   // handle logistics when game ends
+  useEffect(() => {   // logistics when game ends: SWITCH ROUNDS + LOG SCORES
     if (!show && gameEndedRef.current) {
       // store game scores in localStorage for scoreboard
-      const curr_player_score = playerScoreRef.current;
-      const curr_computer_score = computerScoreRef.current;
+      const curr_player_score = playerScoreRef.current || 0;
+      const curr_computer_score = computerScoreRef.current || 0;
       const ROUND_4 = 4;
-            
-      localStorage.setItem('player_score', curr_player_score);
-      localStorage.setItem('computer_score', curr_computer_score); 
 
-      console.log('Stored Player score:', curr_player_score, 'Computer: ', curr_computer_score);
+      // Save to localStorage
+      const prevScores = JSON.parse(localStorage.getItem('colorblind_scores') || '[]');
+      const filteredScores = prevScores.filter(score => score.roundNumber !== roundNumber); // remove repeated round scores (keep 1 per round!)
+      const updatedScores = [...filteredScores, { roundNumber, curr_player_score, curr_computer_score }];
+      updatedScores.sort((a, b) => a.roundNumber - b.roundNumber); // sort scores by round number (ascending order)
+      localStorage.setItem('colorblind_scores', JSON.stringify(updatedScores));
 
       // redirect to next round when game ends (modal is closed)
       if (roundNumber < ROUND_4) {
@@ -192,8 +194,8 @@ const ColorblindGame = () =>{
         return {
             x: Math.random() * (svgWidth.current - 2 * radius.current) + radius.current,
             y: Math.random() * (svgHeight.current - 2 * radius.current) + radius.current,
-            dx: velocity * (Math.random() < 0.5 ? 1 : -1), // Fixed speed, random direction
-            dy: velocity * (Math.random() < 0.5 ? 1 : -1)  // Fixed speed, random direction
+            dx: velocity * (Math.random() < 0.5 ? 1 : -1), // fixed speed, rand direction
+            dy: velocity * (Math.random() < 0.5 ? 1 : -1) 
         };
     }
 
@@ -268,7 +270,6 @@ const ColorblindGame = () =>{
                     resultMessageRef.current.textContent = "Wrong!";
                     resultMessageRef.current.style.color = RED;
                 }
-                //updateScores();
                 resetGameRef.current();
             });
         
@@ -343,7 +344,7 @@ const ColorblindGame = () =>{
       <div ref={gameKeyRef} id="gameKey"></div>
 
       { /* Game over modal */ }
-      <Modal ref={gameOverPopupRef} show={show} onHide={handleClose} size='xl' centered>
+      <Modal ref={gameOverPopupRef} show={show} onHide={handleClose} centered>
         <Modal.Header style={{ backgroundColor: MODAL_COLOR}} closeButton>
           <Modal.Title className='w-100 text-center'><h2>{gameOverMessage}</h2></Modal.Title>
         </Modal.Header>
@@ -352,7 +353,7 @@ const ColorblindGame = () =>{
         </Modal.Body>
         <Modal.Footer style={{ backgroundColor: MODAL_COLOR}}>
           <Button variant='link' onClick={handleClose} style={{ color: 'black'}}>
-            <FaArrowRightLong />
+            <FaArrowRightLong size={30}/>
           </Button>
         </Modal.Footer>
       </Modal>
