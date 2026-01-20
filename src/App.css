@@ -1,107 +1,40 @@
-/* --- existing app styles (unchanged) --- */
-.App {
+#root {
+  margin: 0 auto;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
 }
 
-.App-link {
-  color: #61dafb;
+.card {
+  padding: 2em;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
+.read-the-docs {
+  color: #888;
 }
-
-/* --- card visuals (colors unchanged) --- */
-.game-card {
-  background-color: #f4faff;          /* Normal */
-  border: 1px solid #e5e7eb;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.game-card:hover {
-  background-color: #d5edff;          /* Hover */
-}
-
-/* --- NEW: standardized card body & icon box --- */
-.game-card-body {
-  display: flex;
-  align-items: center;
-  padding: 16px;                       /* = Bootstrap p-3 */
-}
-
-/* Icon area used by ALL cards (SVG or PNG) */
-.card-icon {
-  height: 100px;                       /* match icon height prop */
-  width: 110px;                        /* keeps icon column uniform */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-/* If a card uses <img> for static PNG icons */
-.icon-img {
-  max-height: 100%;
-  max-width: 100%;
-  display: block;
-}
-
-/* --- SVG state swap (default ↔ hover) --- */
-.icon-swap .state-default { opacity: 1; }
-.icon-swap .state-hover  { opacity: 0; }
-
-.icon-swap .state-default,
-.icon-swap .state-hover {
-  transition: opacity .15s ease;
-}
-
-.game-card:hover .icon-swap .state-default { opacity: 0; }
-.game-card:hover .icon-swap .state-hover  { opacity: 1; }
-
-/* --- PNG state swap (stacked images) --- */
-.icon-swap-stack {
-  position: relative;
-  display: inline-block;
-  width: 100%;
-  height: 100%;
-  /* If you know the icon ratio, you can optionally lock it:
-     e.g., aspect-ratio: 122 / 88; */
-}
-
-.icon-swap-stack img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  transition: opacity .15s ease;
-}
-
-.icon-swap-stack img.hover-img { opacity: 0; }
-.game-card:hover .icon-swap-stack img.hover-img { opacity: 1; }
-.game-card:hover .icon-swap-stack img:not(.hover-img) { opacity: 0; }
