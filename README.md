@@ -1,47 +1,70 @@
-# ♿️ Accessible Games App
+# Getting Started with Create React App
 
-This project was built in a [React+Vite JS framework](https://vite.dev/guide/#scaffolding-your-first-vite-project) to be dynamic and screen-reader friendly. The project houses several games demonstrating challenges faced by individuals with particular disabilities online, using colorful animations to teach K-12 and university students about the importance of accessibility in design.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-The entire project is hosted at [gooddesignforall.com](https://gooddesignforall.com/). This React App is specifically hosted at [gooddesignforall.com/ReactTest](https://gooddesignforall.com/ReactTest/).
+## Available Scripts
 
-## 🚀 Getting Started
+In the project directory, you can run:
 
-### Prerequisites
+### `npm start`
 
-- [Node.js](https://nodejs.org/) (v16+ recommended)
-- npm or yarn
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-### Installation
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-```bash
-git clone https://github.com/MatthewMakila/accessible-react-app.git
-cd accessible-game
-npm install
-```
+### `npm test`
 
-## 🔨 Running the Code
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### Locally Run App
-- Once the everything is properly installed/configured, run the following and visit the provided localhost link to view!
+### `npm run build`
 
-```bash
-npm run dev
-```
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-### Hosting the App
-- If you would like to build the project to statically deploy it online via a server (e.g., FTP), run the following command to populate a dist folder with those build files:
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-```bash
-npm run build
-```
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-- Following the build, React will create a folder named `dist`. 
-- This folder houses all the static assets you need to host the app on the server. Be sure to upload the contents of this folder (not `dist` itself!) into the server via FileZilla (on Mac), WinSCP (on Windows), etc
+### `npm run eject`
 
-## 📝 Notes for Other Developers
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-- Most of what you'll need to edit will be within ```src/games/```
-- If you need to add assets (e.g., images) you can add them to ```src/assets/```
-- I'm using [react-bootstrap](https://react-bootstrap.netlify.app/docs/getting-started/introduction/) for most of the app's styling, but if you need to make edits to the global CSS, that's housed in ```index.css```
-- You'll want to edit ```App.jsx``` to add or modify routes for the games you're working on. Your specific ```Game.jsx``` and ```Round.jsx``` will utilize this routing information
-- ```Game.jsx```, ```Round.jsx```, and any other related files you use for a specific game might require edits to the UI and game mechanics: ```return``` and ```useEffect``` will be useful areas of the code to make these edits, respectively. 
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
