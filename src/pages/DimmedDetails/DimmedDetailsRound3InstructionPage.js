@@ -1,5 +1,6 @@
 import React from 'react';
 import InstructionPage from '../../components/InstructionPage';
+import { useNavigate, useParams } from 'react-router-dom';
 
 
 /**
@@ -16,10 +17,11 @@ function DimmedDetailsInstructionPage() {
     "Click the arrow to begin!"
   ];
 
+  const navigate = useNavigate();
+
   // Handle start game action
   const handleStartGame = () => {
-    console.log("Starting Dimmed Details Round 1...");
-    // TODO: Navigate to actual game page
+    navigate(`/dimmed-details-play/game/3`);
   };
 
   return (

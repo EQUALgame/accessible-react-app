@@ -24,6 +24,9 @@ import ScrambledScriptRound2InstructionPage from './pages/ScrambledScript/Scramb
 import ScrambledScriptRound3InstructionPage from './pages/ScrambledScript/ScrambledScriptRound3InstructionPage';
 import ScrambledScriptRound4InstructionPage from './pages/ScrambledScript/ScrambledScriptRound4InstructionPage';
 
+import DimmedDetailsGame from './games/dimmeddetails/Game';
+import DimmedDetailsScores from './games/dimmeddetails/Scores';
+
 import DimmedDetailsPage from './pages/DimmedDetails/DimmedDetailsPage';
 import DimmedDetailsRound1InstructionPage from './pages/DimmedDetails/DimmedDetailsRound1InstructionPage';
 import DimmedDetailsRound2InstructionPage from './pages/DimmedDetails/DimmedDetailsRound2InstructionPage';
@@ -87,6 +90,8 @@ function App() {
         <Route path="/dimmed-details/round-3" element={<DimmedDetailsRound3InstructionPage />} />
         <Route path="/dimmed-details/round-4" element={<DimmedDetailsRound4InstructionPage />} />
         <Route path="/dimmed-details/learn-more" element={<DimmedDetailsLearnPage />} />
+        <Route path="/dimmed-details-play/game/:round" element={<DimmedDetailsGame />} />
+        <Route path="/dimmed-details-play/recap" element={<DimmedDetailsScores />} />
 
         {/* Sightless Search */}
         <Route path="/sightless-search" element={<SightlessSearchPage />} />
