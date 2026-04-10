@@ -11,6 +11,7 @@ import robotImage from '../../assets/robot.png';
 import manImage from '../../assets/man_win.png';
 import tieImage from '../../assets/tie.png';
 import GameShell from '../GameShell';
+import { px } from 'framer-motion';
 
 
 
@@ -39,7 +40,8 @@ const DimmedDetailsGame = () =>{
   const [blurValue, setBlurValue] = useState(10); // state for blur amount so it updates reactively
   const [ballScale, setBallScale] = useState(1); // multiplier for ball size
   const ballsRef = useRef([]); // reference to current balls array for live resizing
-  
+
+
   // refs for HTML elements
   const svgRef = useRef(null);
   const gameKeyRef = useRef(null);
@@ -68,9 +70,7 @@ const DimmedDetailsGame = () =>{
 
   const makePositive = () => {
     setBlurValue(v => v - 5);
-    setTestValue(v => v < 200 ? v + 10 : 200);
-    
-    // increase ball size without moving them
+    setTestValue(v => v < 200 ? v + 10 : 200);    // increase ball size without moving them
     const newScale = ballScale + 0.1;
     setBallScale(newScale);
     const newRadius = svgHeight.current * 0.10 * newScale;
@@ -78,6 +78,7 @@ const DimmedDetailsGame = () =>{
       const circle = ball.element.querySelector('circle');
       if (circle) circle.setAttribute('r', newRadius);
     });
+    radius.current = newRadius; // update radius ref for ball movement calculations
   };
 
   const makeNegative = () => {
@@ -88,6 +89,7 @@ const DimmedDetailsGame = () =>{
     const newScale = Math.max(0.1, ballScale - 0.1);
     setBallScale(newScale);
     const newRadius = svgHeight.current * 0.10 * newScale;
+    // setFontSize(newRadius * 2); // scale font size proportionally with ball radius
     ballsRef.current.forEach(ball => {
       const circle = ball.element.querySelector('circle');
       if (circle) circle.setAttribute('r', newRadius);
@@ -371,13 +373,14 @@ const DimmedDetailsGame = () =>{
 
         { /* Game key */ }
         <div ref={gameKeyRef} id="gameKey"></div>
-
-        <div>
-          <button onClick={makePositive}>+</button>
-          <p id="test"> {testValue} </p>
-          <button onClick={makeNegative}>-</button>
-        </div>
-
+        {(roundNumber == 3 || roundNumber == 4) && (
+          <div>
+            <button onClick={makePositive}>+</button>
+            <p id="test"> {testValue} </p>
+            <button onClick={makeNegative}>-</button>
+          </div>
+        )}
+      
         { /* Game over modal */ }
         <Modal ref={gameOverPopupRef} show={show} onHide={handleClose} centered>
           <Modal.Header style={{ backgroundColor: MODAL_COLOR}} closeButton>

@@ -28,7 +28,7 @@ function DimmedDetailsInstructionPage() {
     <InstructionPage
       title="Dimmed Details - Round 4/4"
       instructions={instructions}
-    //   imagePath=".png" // Path to your PNG image
+      imagePath={process.env.PUBLIC_URL + "/icons/dimmedDetails/dimmedDetailsRound4.svg"} 
       onStartGame={handleStartGame}
     />
   );
