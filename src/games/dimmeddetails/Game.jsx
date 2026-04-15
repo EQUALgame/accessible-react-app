@@ -11,10 +11,7 @@ import robotImage from '../../assets/robot.png';
 import manImage from '../../assets/man_win.png';
 import tieImage from '../../assets/tie.png';
 import GameShell from '../GameShell';
-import { px } from 'framer-motion';
-
-
-
+import './game.css';
 
 
 const DimmedDetailsGame = () =>{
@@ -36,7 +33,7 @@ const DimmedDetailsGame = () =>{
   const MODAL_COLOR = '#B6D5EBBF'; 
 
 // NEW TESTING STATES
-  const [testValue, setTestValue] = useState(100); // state to save value that we want to update and display
+  const [zoomPercent, setZoomPercent] = useState(100); // state to save value that we want to update and display
   const [blurValue, setBlurValue] = useState(10); // state for blur amount so it updates reactively
   const [ballScale, setBallScale] = useState(1); // multiplier for ball size
   const ballsRef = useRef([]); // reference to current balls array for live resizing
@@ -70,30 +67,35 @@ const DimmedDetailsGame = () =>{
 
   const makePositive = () => {
     setBlurValue(v => v - 5);
-    setTestValue(v => v < 200 ? v + 10 : 200);    // increase ball size without moving them
-    const newScale = ballScale + 0.1;
-    setBallScale(newScale);
-    const newRadius = svgHeight.current * 0.10 * newScale;
-    ballsRef.current.forEach(ball => {
-      const circle = ball.element.querySelector('circle');
-      if (circle) circle.setAttribute('r', newRadius);
-    });
-    radius.current = newRadius; // update radius ref for ball movement calculations
+    setZoomPercent(v => v < 200 ? v + 10 : 200); 
+    if (zoomPercent < 200) {   // increase ball size without moving them
+      const newScale = ballScale + 0.1;
+      setBallScale(newScale);
+      const newRadius = svgHeight.current * 0.10 * newScale;
+      ballsRef.current.forEach(ball => {
+        const circle = ball.element.querySelector('circle');
+        if (circle) circle.setAttribute('r', newRadius);
+      });
+    
+      radius.current = newRadius; // update radius ref for ball movement calculations
+
+    }
   };
 
   const makeNegative = () => {
     setBlurValue(v => v + 5);
-    setTestValue(v => v > 60 ? v - 10 : 60);
+    setZoomPercent(v => v > 60 ? v - 10 : 60);
     
-    // decrease ball size without moving them
-    const newScale = Math.max(0.1, ballScale - 0.1);
-    setBallScale(newScale);
-    const newRadius = svgHeight.current * 0.10 * newScale;
-    // setFontSize(newRadius * 2); // scale font size proportionally with ball radius
-    ballsRef.current.forEach(ball => {
-      const circle = ball.element.querySelector('circle');
-      if (circle) circle.setAttribute('r', newRadius);
-    });
+    if (zoomPercent > 60) { // decrease ball size without moving them
+      const newScale = Math.max(0.1, ballScale - 0.1);
+      setBallScale(newScale);
+      const newRadius = svgHeight.current * 0.10 * newScale;
+      // setFontSize(newRadius * 2); // scale font size proportionally with ball radius
+      ballsRef.current.forEach(ball => {
+        const circle = ball.element.querySelector('circle');
+        if (circle) circle.setAttribute('r', newRadius);
+      });
+    }
   };
 
   useEffect(() => {   // resizeObserver to update SVG dimensions for screen orientation changes
@@ -175,12 +177,12 @@ const DimmedDetailsGame = () =>{
       ]
     
 
-    // display the game key
-    if (roundNumber === ROUND_3 || roundNumber === ROUND_4) {
-        gameKeyRef.current.innerHTML = gameKeyMessage3_4;
-    } else {
-        gameKeyRef.current.innerHTML = gameKeyMessage1_2;
-    }
+    // // display the game key
+    // if (roundNumber === ROUND_3 || roundNumber === ROUND_4) {
+    //     gameKeyRef.current.innerHTML = gameKeyMessage3_4;
+    // } else {
+    //     gameKeyRef.current.innerHTML = gameKeyMessage1_2;
+    // }
 
     /************** 
     GAME MECHANICS 
@@ -204,7 +206,7 @@ const DimmedDetailsGame = () =>{
         } else if (didTie) {
           imgRef.current = tieImage;
         } else {
-          imgRef.current = robotImage;
+          imgRef.current = {robotImage};
         }
 
         handleShow() // show popup
@@ -367,20 +369,25 @@ const DimmedDetailsGame = () =>{
         { /* Game msgs + canvas (SVG, announcements) */ }
         <h3 ref={targetColorTextRef} aria-live="assertive" style={blurStyle}>Click the correct color ball</h3>
 
+
         <svg ref={svgRef} className="gameCanvas" preserveAspectRatio="xMidYMid meet" role="group" aria-labelledby="canvas-title" style={blurStyle}>
           <title id="canvas-title">Game canvas with moving balls</title>
         </svg>
 
         { /* Game key */ }
         <div ref={gameKeyRef} id="gameKey"></div>
-        {(roundNumber == 3 || roundNumber == 4) && (
-          <div>
-            <button onClick={makePositive}>+</button>
-            <p id="test"> {testValue} </p>
-            <button onClick={makeNegative}>-</button>
+
+        { /* Game Button */ }
+        {(roundNumber === 3 || roundNumber === 4) && (
+          <div className='buttondiv'>
+            <button className="zoombutton" onClick={makeNegative}>-</button>
+            <p id="zoomPercent">{zoomPercent} %</p>
+            <button className='zoombutton' onClick={makePositive}>+</button>
           </div>
         )}
-      
+
+
+
         { /* Game over modal */ }
         <Modal ref={gameOverPopupRef} show={show} onHide={handleClose} centered>
           <Modal.Header style={{ backgroundColor: MODAL_COLOR}} closeButton>

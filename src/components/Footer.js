@@ -6,7 +6,7 @@ function Footer() {
       <Container>
         <div className="text-center">
           <p className="mb-2" style={{fontSize: '14px'}}>
-            <strong>Disclaimer:</strong> These activities are educational simulations and may not fully represent 
+            <strong>Disclaimer:</strong> These activities are educational and may not fully represent 
             the experiences of individuals with specific conditions. They are simplified to raise awareness 
             and foster understanding.
           </p>

@@ -1,0 +1,47 @@
+.buttondiv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    /* This ensures the group doesn't have gaps */
+    gap: 0;
+    padding-bottom: 20px;
+}
+
+.zoombutton {
+    padding: 0.6rem 1rem;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    background-color: dodgerblue;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid dodgerblue;
+    border-bottom: 1px solid dodgerblue;
+}
+
+
+/* Round only the outer left corner of the first button */
+.zoombutton:first-child {
+    border-radius: 0.35rem 0 0 0.35rem;
+}
+
+/* Round only the outer right corner of the last button */
+.zoombutton:last-child {
+    border-radius: 0 0.35rem 0.35rem 0;
+}
+
+
+#zoomPercent {
+    background-color: white;
+    margin: 0; /* Remove default paragraph margins */
+    padding: 0.6rem 1.5rem;
+    min-width: 40px;
+    text-align: center;
+    color: dodgerblue;
+    /* Optional: adds a thin border to define the white area better */
+    border-top: 1px solid dodgerblue;
+    border-bottom: 1px solid dodgerblue;
+}
