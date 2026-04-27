@@ -11,10 +11,10 @@ function Footer() {
             and foster understanding.
           </p>
           <p className="mb-2" style={{fontSize: '14px'}}>
-            This work is licensed under a <a href="#" className="text-primary">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a> by Through Games
+            This work is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" className="text-primary">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a> by Equal Games
           </p>
           <p className="mb-0" style={{fontSize: '14px'}}>
-            Illustrations by <a href="#" className="text-primary">icons8</a>
+            Illustrations by <a href="https://icons8.com/" className="text-primary">icons8</a>
           </p>
         </div>
       </Container>

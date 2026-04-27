@@ -95,6 +95,9 @@ const DimmedDetailsGame = () =>{
         const circle = ball.element.querySelector('circle');
         if (circle) circle.setAttribute('r', newRadius);
       });
+
+      radius.current = newRadius; // update radius ref for ball movement calculations
+      
     }
   };
 
@@ -206,7 +209,7 @@ const DimmedDetailsGame = () =>{
         } else if (didTie) {
           imgRef.current = tieImage;
         } else {
-          imgRef.current = {robotImage};
+          imgRef.current = robotImage;
         }
 
         handleShow() // show popup
@@ -390,7 +393,7 @@ const DimmedDetailsGame = () =>{
 
         { /* Game over modal */ }
         <Modal ref={gameOverPopupRef} show={show} onHide={handleClose} centered>
-          <Modal.Header style={{ backgroundColor: MODAL_COLOR}} closeButton>
+          <Modal.Header style={{ backgroundColor: MODAL_COLOR}}>
             <Modal.Title className='w-100 text-center'><h2>{gameOverMessage}</h2></Modal.Title>
           </Modal.Header>
           <Modal.Body style={{ backgroundColor: MODAL_COLOR}}>
