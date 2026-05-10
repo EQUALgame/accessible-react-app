@@ -168,41 +168,19 @@ function DimmedDetailsPage() {
             }}>
             <thead>
               <tr>
-                <th
-                  style={{
-                    backgroundColor: "#B6D5EB99",
-                    border: "none",
-                    width: "33.33%",
-                    padding: "12px"
-                  }}
-                >
+                <th style={{ backgroundColor: "#B6D5EB99", border: "none", width: "33.33%", padding: "12px", fontWeight: "normal", fontStyle: "italic", fontSize: "20px" }}>
                   Permanent
                 </th>
 
-                <th
-                  style={{
-                    backgroundColor: "#B6D5EB99",
-                    border: "none",
-                    width: "33.33%",
-                    padding: "12px"
-                  }}
-                >
+                <th style={{ backgroundColor: "#B6D5EB99", border: "none", width: "33.33%", padding: "12px", fontWeight: "normal", fontStyle: "italic", fontSize: "20px" }}>
                   Temporary
                 </th>
 
-                <th
-                  style={{
-                    backgroundColor: "#B6D5EB99",
-                    border: "none",
-                    width: "33.33%",
-                    padding: "12px"
-                  }}
-                >
+                <th style={{ backgroundColor: "#B6D5EB99", border: "none", width: "33.33%", padding: "12px", fontWeight: "normal", fontStyle: "italic", fontSize: "20px" }}>
                   Situational
                 </th>
               </tr>
             </thead>
-
             <tbody>
               <tr>
                 <td
