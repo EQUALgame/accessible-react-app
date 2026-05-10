@@ -4,6 +4,7 @@ import { Container, Button, Row, Col } from 'react-bootstrap';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import { Link } from 'react-router-dom';
+import Table from 'react-bootstrap/Table';
 
 function DimmedDetailsPage() {
   return (
@@ -12,24 +13,6 @@ function DimmedDetailsPage() {
 
       {/* HERO + ACTION */}
       <section className="py-5" style={{ backgroundColor: '#E3F2FD', position: 'relative' }}>
-        {/* Back button - top left
-        <a
-          href="/"
-          aria-label="Go back to home page"
-          style={{
-            position: 'absolute',
-            top: '1.5rem',
-            left: '1.5rem',
-            background: 'transparent',
-            border: 'none',
-            fontSize: '2rem',
-            cursor: 'pointer',
-            color: '#002B5B',
-            textDecoration: 'none',
-          }}
-        >
-          &lt;
-        </a> */}
 
         <Container>
           <div className="text-center mb-5">
@@ -166,10 +149,121 @@ function DimmedDetailsPage() {
       <section id="more-about" className="py-5 border-top">
         <Container className="text-center">
           <h2 className="fw-bold display-6 text-primary mb-4">
-            More About Designing
+            Universally Designing For Low Vision 
           </h2>
-          <p className="fst-italic fs-5" style={{ maxWidth: '1000px', margin: '0 auto' }}>
-            This game shows how technology looks to people with low vision or trouble seeing contrast. It helps us create designs that are more be clear and easy to view.
+          <p className="fs-5">
+            Useful for those with low vision, older adults, and also enhances vision for tired eyes!
+          </p>
+        </Container>
+
+
+        <Container className="text-center">
+          <table
+            className=" text-center"
+            style={{
+              width: "60%",
+              margin: "0 auto",
+              borderCollapse: "separate",
+              borderSpacing: "12px"
+            }}>
+            <thead>
+              <tr>
+                <th
+                  style={{
+                    backgroundColor: "#B6D5EB99",
+                    border: "none",
+                    width: "33.33%",
+                    padding: "12px"
+                  }}
+                >
+                  Permanent
+                </th>
+
+                <th
+                  style={{
+                    backgroundColor: "#B6D5EB99",
+                    border: "none",
+                    width: "33.33%",
+                    padding: "12px"
+                  }}
+                >
+                  Temporary
+                </th>
+
+                <th
+                  style={{
+                    backgroundColor: "#B6D5EB99",
+                    border: "none",
+                    width: "33.33%",
+                    padding: "12px"
+                  }}
+                >
+                  Situational
+                </th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td
+                  style={{
+                    border: "1px solid black",
+                    padding: "12px",
+                    verticalAlign: "top",
+                    width: "33.33%"
+                  }}
+                >
+                  <ul className="text-start mb-0">
+                    <li>Low Vision</li>
+                    <li>Glaucoma</li>
+                  </ul>
+                </td>
+
+                <td
+                  style={{
+                    border: "1px solid black",
+                    padding: "12px",
+                    verticalAlign: "top",
+                    width: "33.33%"
+                  }}
+                >
+                  <ul className="text-start mb-0">
+                    <li>Eye Surgery</li>
+                    <li>Dilated Eyes</li>
+                  </ul>
+                </td>
+
+                <td
+                  style={{
+                    border: "1px solid black",
+                    padding: "12px",
+                    verticalAlign: "top",
+                    width: "33.33%"
+                  }}
+                >
+                  <ul className="text-start mb-0">
+                    <li>Environmental light conditions (sun, fog)</li>
+                    <li>Using screen when walking</li>
+                  </ul>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </Container>
+
+
+        <Container className='text-start' style={{ maxWidth: '800px', margin: '0 auto' }}>
+          <p className="fs-5 fw-bold" style={{  color: '#272A79' }}>
+            Types of disabilities:         
+          </p>
+          <p>
+            <strong>Permanent:</strong> A disability that diminishes an individual’s ability to perform tasks at the same capacity that the individual was able to before their condition.
+          </p>
+          <p>
+            <strong>Temporary:</strong> A condition that prevents an individual from performing their activities for a limited period
+          </p>
+          <p>
+            <strong>Situational:</strong> A temporary limitation in a person’s ability to interact with their environment or technology, caused by a momentary circumstance.          
           </p>
         </Container>
       </section>
