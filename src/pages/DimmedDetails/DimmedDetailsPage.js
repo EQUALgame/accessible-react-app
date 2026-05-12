@@ -147,7 +147,7 @@ function DimmedDetailsPage() {
 
       {/* ALWAYS VISIBLE SECTION */}
       <section id="more-about" className="py-5 border-top">
-        <Container className="text-center">
+        <Container className="text-center" style={{ maxWidth: '800px' }}>
           <h2 className="fw-bold display-6 text-primary mb-4">
             Universally Designing For Low Vision 
           </h2>

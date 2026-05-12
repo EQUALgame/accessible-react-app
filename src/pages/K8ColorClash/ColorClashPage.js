@@ -99,7 +99,7 @@ function ColorClashPage() {
                   wordBreak: 'break-word'
                 }}
               >
-                Learn More
+                Play Video
               </Button>
             </Col>
             {/* Start Game */}
