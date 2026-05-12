@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import ScrollToTop from "./components/ScrollToTop";
 
 import HomePage from './pages/HomePage';
+import K8Page from './pages/K8Page';
 
 import ColorClashRound from './games/colorclash/Round';
 import ColorClashGame from './games/colorclash/Game';
@@ -56,6 +57,7 @@ import ScrambledScriptLearnPage from './pages/learn_more/ScrambledScriptLearnPag
 import SightlessSearchLearnPage from './pages/learn_more/SightlessSearchLearnPage';
 import SilentSurfingLearnPage from './pages/learn_more/SilentSurfingLearnPage';
 import HesitantHoverLearnPage from './pages/learn_more/HesitantHoverLearnPage';
+import { ImPieChart } from 'react-icons/im';
 
 function App() {
   return (
@@ -64,6 +66,10 @@ function App() {
       <Routes>
         {/* Home */}
         <Route path="/" element={<HomePage />} />
+
+        {/* K-8 */}
+        <Route path="/k8" element={<K8Page />} />
+
 
         {/* Color Clash */}
         <Route path="/color-clash" element={<ColorClashPage />} />
