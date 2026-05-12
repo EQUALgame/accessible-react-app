@@ -12,7 +12,7 @@ function DimmedDetailsPage() {
       <Header />
 
       {/* HERO + ACTION */}
-      <section className="py-5" style={{ backgroundColor: '#E3F2FD', position: 'relative' }}>
+      <section className="py-5" style={{ backgroundColor: '#E4D8FF', position: 'relative' }}>
 
         <Container>
           <div className="text-center mb-5">
@@ -145,6 +145,7 @@ function DimmedDetailsPage() {
         </Container>
       </section>
 
+      {/* ALWAYS VISIBLE SECTION */}
       {/* ALWAYS VISIBLE SECTION */}
       <section id="more-about" className="py-5 border-top">
         <Container className="text-center">

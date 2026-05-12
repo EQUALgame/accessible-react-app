@@ -77,7 +77,7 @@ function K8Page() {
             <Col lg={4} md={6}>
               <Card
                 as={Link}
-                to="/color-clash"
+                to="/k8/color-clash"
                 className="game-card h-100 shadow-sm border-0 text-decoration-none"
               >
                 <Card.Body className="p-3 d-flex align-items-center">
@@ -96,7 +96,7 @@ function K8Page() {
             <Col lg={4} md={6}>
               <Card
                 as={Link}
-                to="/dimmed-details"
+                to="/k8/dimmed-details"
                 className="game-card h-100 shadow-sm border-0 text-decoration-none"
               >
                 <Card.Body className="p-3 d-flex align-items-center">
