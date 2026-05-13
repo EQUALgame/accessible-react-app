@@ -146,7 +146,6 @@ function DimmedDetailsPage() {
       </section>
 
       {/* ALWAYS VISIBLE SECTION */}
-      {/* ALWAYS VISIBLE SECTION */}
       <section id="more-about" className="py-5 border-top">
         <Container className="text-center">
           <h2 className="fw-bold display-6 mb-4" style={{ color: '#774FCA' }}>

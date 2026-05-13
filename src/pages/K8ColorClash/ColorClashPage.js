@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Button, Row, Col } from 'react-bootstrap';
 import Header from '../../components/Header';
@@ -6,7 +6,11 @@ import Footer from '../../components/Footer';
 import { Link } from 'react-router-dom';
 import { color } from 'framer-motion';
 
+
 function ColorClashPage() {
+  const [playVideo, setPlayVideo] = useState(false);
+  const youtubeSrc = `https://www.youtube.com/embed/aHC02QpJJVY${playVideo ? '?autoplay=1' : ''}`;
+
   return (
     <div style={{ overflowX: 'hidden' }}>
       <Header />
@@ -60,33 +64,21 @@ function ColorClashPage() {
                   alignItems: 'center'
                 }}
               >
-                <div
-                  style={{
-                    fontSize: 'clamp(1.4rem, 4.5vw, 1.7rem)',
-                    fontWeight: '700',
-                    color: 'white',
-                    marginBottom: '10px'
-                  }}
-                >
-                  Implementing Accessibility
-                </div>
-
-                <img
-                  src={process.env.PUBLIC_URL + "/icons/learnMoreDown.svg"}
-                  alt="Implementing accessibility illustration"
-                  style={{
-                    maxWidth: '100%',
-                    height: '280px',
-                    objectFit: 'contain',
-                    display: 'block'
-                  }}
+                <iframe
+                  src={youtubeSrc}
+                  frameBorder="0"
+                  allow="autoplay; encrypted-media; fullscreen"
+                  allowFullScreen
+                  title="Color Clash introduction video"
+                  width="100%"
+                  height="330px"
                 />
               </div>
 
               <Button
-                as={Link} to="/color-clash/learn-more"
                 variant="primary"
                 size="lg"
+                onClick={() => setPlayVideo(true)}
                 className="mt-3 px-4 py-2 fw-semibold"
                 style={{
                   fontSize: 'clamp(1.6rem, 4.5vw, 2rem)', // ✅ scales down on mobile
@@ -99,7 +91,7 @@ function ColorClashPage() {
                   wordBreak: 'break-word'
                 }}
               >
-                Play Video
+                {playVideo ? 'Playing Video' : 'Play Video'}
               </Button>
             </Col>
             {/* Start Game */}
