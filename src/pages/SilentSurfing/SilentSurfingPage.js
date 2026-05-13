@@ -85,15 +85,19 @@ function SilentSurfingPage() {
               </div>
 
               <Button
+                as={Link} to="/silent-surfing/round-1"
                 variant="primary"
                 size="lg"
                 className="mt-3 px-4 py-2 fw-semibold"
                 style={{
-                  fontSize: '2rem',
+                  fontSize: 'clamp(1.6rem, 4.5vw, 2rem)',
                   backgroundColor: '#6BA3D6',
                   border: 'none',
                   borderRadius: 20,
-                  boxShadow: '0 4px 0 rgba(0,0,0,.2)'
+                  boxShadow: '0 4px 0 rgba(0,0,0,.2)',
+                  maxWidth: '100%',
+                  whiteSpace: 'normal',
+                  wordBreak: 'break-word'
                 }}
               >
                 Start Game

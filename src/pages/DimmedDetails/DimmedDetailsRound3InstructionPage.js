@@ -1,32 +1,34 @@
 import React from 'react';
 import InstructionPage from '../../components/InstructionPage';
+import { useNavigate, useParams } from 'react-router-dom';
 
 
 /**
- * ColorClashInstructionPage Component
- * Round 1/4 instruction page for Color Clash
+ * DimmedDetailsInstructionPage Component
+ * Round 3/4 instruction page for Dimmed Details
  * Uses the reusable InstructionPage component
  */
 function DimmedDetailsInstructionPage() {
   // Instruction content for Round 1
   const instructions = [
-    "In this round, you will have 30 seconds to pop as many red or green balloons as possible.",
-    "You will see instructions to pop either a red or green balloon displayed underneath the time bar.",
+    "In this round, you will have 30 seconds to pop as many shapes as possible.",
+    "You will see instructions to pop a shape displayed underneath the time bar.",
     "Popping the correct color increases your score, while popping the incorrect color decreases your score and increases the computer's.",
     "Click the arrow to begin!"
   ];
 
+  const navigate = useNavigate();
+
   // Handle start game action
   const handleStartGame = () => {
-    console.log("Starting Dimmed Details Round 1...");
-    // TODO: Navigate to actual game page
+    navigate(`/dimmed-details-play/game/3`);
   };
 
   return (
     <InstructionPage
       title="Dimmed Details - Round 3/4"
       instructions={instructions}
-    //   imagePath=".png" // Path to your PNG image
+      imagePath={process.env.PUBLIC_URL + "/icons/dimmedDetails/dimmedDetailsRound3.svg"} 
       onStartGame={handleStartGame}
     />
   );

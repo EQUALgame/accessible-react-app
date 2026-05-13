@@ -9,8 +9,8 @@ import { useNavigate, useParams } from 'react-router-dom';
  */
 function ColorClashRound2InstructionPage() {
   const instructions = [
-    "In this round, you will have 30 seconds to pop as many red or green balloons as possible.",
-    "You will see instructions to pop either a red or green balloon displayed underneath the time bar.",
+    "In this round, you will have 30 seconds to pop as many red or green balls as possible.",
+    "You will see instructions to pop either a red or green ball displayed underneath the time bar.",
     "Popping the correct color increases your score, while popping the incorrect color decreases your score and increases the computer's.",
     "Click the arrow to begin!"
   ];

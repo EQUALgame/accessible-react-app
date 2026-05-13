@@ -29,6 +29,8 @@ import DimmedDetailsRound1InstructionPage from './pages/DimmedDetails/DimmedDeta
 import DimmedDetailsRound2InstructionPage from './pages/DimmedDetails/DimmedDetailsRound2InstructionPage';
 import DimmedDetailsRound3InstructionPage from './pages/DimmedDetails/DimmedDetailsRound3InstructionPage';
 import DimmedDetailsRound4InstructionPage from './pages/DimmedDetails/DimmedDetailsRound4InstructionPage';
+import DimmedDetailsGame from './games/dimmeddetails/Game';
+import DimmedDetailsScores from './games/dimmeddetails/Scores';
 
 import SightlessSearchPage from './pages/SightlessSearch/SightlessSearchPage';
 import SightlessSearchRound1InstructionPage from './pages/SightlessSearch/SightlessSearchRound1InstructionPage';
@@ -41,6 +43,8 @@ import SilentSurfingRound1InstructionPage from './pages/SilentSurfing/SilentSurf
 import SilentSurfingRound2InstructionPage from './pages/SilentSurfing/SilentSurfingRound2InstructionPage';
 import SilentSurfingRound3InstructionPage from './pages/SilentSurfing/SilentSurfingRound3InstructionPage';
 import SilentSurfingRound4InstructionPage from './pages/SilentSurfing/SilentSurfingRound4InstructionPage';
+import SilentSurfingGame from './games/silentSurfing/Game_new';
+import SilentSurfingScores from './games/silentSurfing/Scores_new';
 
 import HesitantHoverPage from './pages/HesitantHover/HesitantHoverPage';
 import HesitantHoverRound1InstructionPage from './pages/HesitantHover/HesitantHoverRound1InstructionPage';
@@ -87,6 +91,8 @@ function App() {
         <Route path="/dimmed-details/round-3" element={<DimmedDetailsRound3InstructionPage />} />
         <Route path="/dimmed-details/round-4" element={<DimmedDetailsRound4InstructionPage />} />
         <Route path="/dimmed-details/learn-more" element={<DimmedDetailsLearnPage />} />
+        <Route path="/dimmed-details-play/game/:round" element={<DimmedDetailsGame />} />
+        <Route path="/dimmed-details-play/recap" element={<DimmedDetailsScores />} />
 
         {/* Sightless Search */}
         <Route path="/sightless-search" element={<SightlessSearchPage />} />
@@ -103,6 +109,8 @@ function App() {
         <Route path="/silent-surfing/round-3" element={<SilentSurfingRound3InstructionPage />} />
         <Route path="/silent-surfing/round-4" element={<SilentSurfingRound4InstructionPage />} />
         <Route path="/silent-surfing/learn-more" element={<SilentSurfingLearnPage />} />
+        <Route path="/silent-surfing-play/game/:round" element={<SilentSurfingGame />} />
+        <Route path="/silent-surfing-play/recap" element={<SilentSurfingScores />} />
 
         {/* Hesitant Hover */}
         <Route path="/hesitant-hover" element={<HesitantHoverPage />} />

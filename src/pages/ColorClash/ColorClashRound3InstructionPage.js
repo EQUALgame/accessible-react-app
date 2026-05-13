@@ -4,12 +4,12 @@ import { useNavigate, useParams } from 'react-router-dom';
 
 
 /**
- * ColorClashRound3InstructionPage Component
- * Round 3/4 instruction page for Color Clash (Click-free)
+ * ColorClashball3InstructionPage Component
+ * ball 3/4 instruction page for Color Clash (Click-free)
  */
-function ColorClashRound3InstructionPage() {
+function ColorClashball3InstructionPage() {
   const instructions = [
-    "In this round, you will have 30 seconds to pop as many red, green, or yellow balloons as possible.",
+    "In this ball, you will have 30 seconds to pop as many red, green, or yellow balloons as possible.",
     "You will see instructions to pop either a red, green, or yellow balloon displayed underneath the time bar.",
     "Popping the correct color increases your score, while popping the incorrect color decreases your score and increases the computer's.",
     "Click the arrow to begin!"
@@ -24,12 +24,12 @@ function ColorClashRound3InstructionPage() {
 
   return (
     <InstructionPage
-      title="Color Clash - Round 3/4"
+      title="Color Clash - ball 3/4"
       instructions={instructions}
-      imagePath={process.env.PUBLIC_URL + "/icons/colorClash/colorClashRound3.svg"} 
+      imagePath={process.env.PUBLIC_URL + "/icons/colorClash/colorClashball3.svg"} 
       onStartGame={handleStartGame}
     />
   );
 }
 
-export default ColorClashRound3InstructionPage;
+export default ColorClashball3InstructionPage;

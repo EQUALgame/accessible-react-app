@@ -26,8 +26,8 @@ function getCardBody(roundNumber, img1, img2, alt1, alt2) {
         <Row className="align-items-center p-4">
           <Col>
             <ul>
-              <li>In this round, you will have 30 seconds to pop as many red or green balloons as possible.</li>
-              <li>You will see instructions to pop either a red or green balloon displayed underneath the time bar.</li>
+              <li>In this round, you will have 30 seconds to pop as many red or green balls as possible.</li>
+              <li>You will see instructions to pop either a red or green ball displayed underneath the time bar.</li>
               <li>Popping the correct color increases your score, while popping the incorrect color decreases your score and increases the computer's.</li>
               <li>Click the arrow to begin!</li>
             </ul>
@@ -61,8 +61,8 @@ export default function Round({ roundNumber }) {
   const CARD_COLOR = '#B6D5EBBF'; 
   const imgRef = useRef(null);
   const imgRef2 = useRef(null);
-  const alt_text = "Man looking at balloons";
-  const alt_text2 = "speech bubble says pop balloon"; 
+  const alt_text = "Man looking at balls";
+  const alt_text2 = "speech bubble says pop ball"; 
   
   switch (round) { // handle image changes based on round
     case 1:

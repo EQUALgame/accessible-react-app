@@ -11,9 +11,10 @@ import robotImage from '../../assets/robot.png';
 import manImage from '../../assets/man_win.png';
 import tieImage from '../../assets/tie.png';
 import GameShell from '../GameShell';
+import './game.css';
 
 
-const ColorblindGame = () =>{
+const DimmedDetailsGame = () =>{
   // The components below are more dynamic than vars housed within UseEffect, so we define them here.
   const { round } = useParams(); // grab the round num from the URL params
   const roundNumber = Number(round) || 1;
@@ -30,7 +31,14 @@ const ColorblindGame = () =>{
   const computerScoreRef = useRef(0);
   const imgRef = useRef(null);
   const MODAL_COLOR = '#B6D5EBBF'; 
-  
+
+// NEW TESTING STATES
+  const [zoomPercent, setZoomPercent] = useState(100); // state to save value that we want to update and display
+  const [blurValue, setBlurValue] = useState(10); // state for blur amount so it updates reactively
+  const [ballScale, setBallScale] = useState(1); // multiplier for ball size
+  const ballsRef = useRef([]); // reference to current balls array for live resizing
+
+
   // refs for HTML elements
   const svgRef = useRef(null);
   const gameKeyRef = useRef(null);
@@ -43,6 +51,55 @@ const ColorblindGame = () =>{
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  // blur game in round 2 and 4 to simulate low visions
+  let blurStyle;
+
+  if (roundNumber === 2){
+    blurStyle = { filter: "blur(10px)"} // blur by 10px in rounds 2
+
+  } else if(roundNumber == 4){
+    blurStyle = { filter: `blur(${blurValue}px)`} //blur changes based on state value that we can update with buttons for testing
+
+  } else{
+    blurStyle = {};
+  }
+
+  const makePositive = () => {
+    setBlurValue(v => v - 5);
+    setZoomPercent(v => v < 200 ? v + 10 : 200); 
+    if (zoomPercent < 200) {   // increase ball size without moving them
+      const newScale = ballScale + 0.1;
+      setBallScale(newScale);
+      const newRadius = svgHeight.current * 0.10 * newScale;
+      ballsRef.current.forEach(ball => {
+        const circle = ball.element.querySelector('circle');
+        if (circle) circle.setAttribute('r', newRadius);
+      });
+    
+      radius.current = newRadius; // update radius ref for ball movement calculations
+
+    }
+  };
+
+  const makeNegative = () => {
+    setBlurValue(v => v + 5);
+    setZoomPercent(v => v > 60 ? v - 10 : 60);
+    
+    if (zoomPercent > 60) { // decrease ball size without moving them
+      const newScale = Math.max(0.1, ballScale - 0.1);
+      setBallScale(newScale);
+      const newRadius = svgHeight.current * 0.10 * newScale;
+      // setFontSize(newRadius * 2); // scale font size proportionally with ball radius
+      ballsRef.current.forEach(ball => {
+        const circle = ball.element.querySelector('circle');
+        if (circle) circle.setAttribute('r', newRadius);
+      });
+
+      radius.current = newRadius; // update radius ref for ball movement calculations
+      
+    }
+  };
 
   useEffect(() => {   // resizeObserver to update SVG dimensions for screen orientation changes
     const observer = new ResizeObserver(() => {
@@ -73,17 +130,17 @@ const ColorblindGame = () =>{
       const ROUND_4 = 4;
 
       // Save to localStorage
-      const prevScores = JSON.parse(localStorage.getItem('colorblind_scores') || '[]');
+      const prevScores = JSON.parse(localStorage.getItem('dimmeddetails_scores') || '[]');
       const filteredScores = prevScores.filter(score => score.roundNumber !== roundNumber); // remove repeated round scores (keep 1 per round!)
       const updatedScores = [...filteredScores, { roundNumber, curr_player_score, curr_computer_score }];
       updatedScores.sort((a, b) => a.roundNumber - b.roundNumber); // sort scores by round number (ascending order)
-      localStorage.setItem('colorblind_scores', JSON.stringify(updatedScores));
+      localStorage.setItem('dimmeddetails_scores', JSON.stringify(updatedScores));
 
       // redirect to next round when game ends (modal is closed)
       if (roundNumber < ROUND_4) {
-        navigate(`/color-clash/round-${roundNumber + 1}`);
+        navigate(`/dimmed-details/round-${roundNumber + 1}`);
       } else {
-        navigate(`/color-clash-play/recap/`); // Or to results/debrief page
+        navigate(`/dimmed-details-play/recap/`); // Or to results/debrief page
       }
     }
   }, [show, roundNumber, navigate]);
@@ -97,8 +154,8 @@ const ColorblindGame = () =>{
     const ROUND_1 = 1; const ROUND_2 = 2; const ROUND_3 = 3; const ROUND_4 = 4;
     const RED = 'red'; const GREEN = 'green'; const YELLOW = 'yellow';
     const RED_LABEL = 'R'; const GREEN_LABEL = 'G'; const YELLOW_LABEL = 'Y';
-    const gameKeyMessage3_4 = "Controls Key:<br>Left Mouse Button = Pop balls<br><br>Game Key:<br>R = Red<br>G = Green<br>Y = Yellow";
-    const gameKeyMessage1_2 = "Controls Key:<br>Left Mouse Button = Pop balls";
+    const gameKeyMessage3_4 = "Controls Key:<br>Left Mouse Button = Pop Balloons<br><br>Game Key:<br>R = Red<br>G = Green<br>Y = Yellow";
+    const gameKeyMessage1_2 = "Controls Key:<br>Left Mouse Button = Pop Balloons";
     const colors_2 = [RED, GREEN]   // never actually try to pop yellow balls
     const numBalls = 9;
     const velocity = 1; // fixed ball velocity
@@ -116,29 +173,19 @@ const ColorblindGame = () =>{
     let loseMessage = "WINNER IS COMPUTER!";
 
     let colors;  // adapted from how they defined colors in old version
-    if (
-      roundNumber === ROUND_2 ||
-      roundNumber === ROUND_4
-    ) {
-      colors = [
-        {color: RED, color_val: '#988c66'},
-        {color: GREEN, color_val: '#d0b869'},
-        {color: YELLOW, color_val: '#f6d154'}
-      ]
-    } else {
       colors = [
         {color: RED, color_val: '#F95F62'},
         {color: GREEN, color_val: '#77D353'},
         {color: YELLOW, color_val: '#FFC82C'}
       ]
-    }
+    
 
-    // display the game key
-    if (roundNumber === ROUND_3 || roundNumber === ROUND_4) {
-        gameKeyRef.current.innerHTML = gameKeyMessage3_4;
-    } else {
-        gameKeyRef.current.innerHTML = gameKeyMessage1_2;
-    }
+    // // display the game key
+    // if (roundNumber === ROUND_3 || roundNumber === ROUND_4) {
+    //     gameKeyRef.current.innerHTML = gameKeyMessage3_4;
+    // } else {
+    //     gameKeyRef.current.innerHTML = gameKeyMessage1_2;
+    // }
 
     /************** 
     GAME MECHANICS 
@@ -202,6 +249,7 @@ const ColorblindGame = () =>{
 
     function createBalls() {
         balls = [];
+        ballsRef.current = balls; // keep reference up to date
         svgRef.current.innerHTML = ''; // Clear previous balls
 
         for (let i = 0; i < numBalls; i++) {
@@ -229,23 +277,6 @@ const ColorblindGame = () =>{
             
             if (roundNumber === ROUND_1 || roundNumber === ROUND_2) { // if 1st half of game, no text labels, only color announcement
                 group.setAttribute('aria-label', `${color} ball`);
-            }
-
-            if (roundNumber === ROUND_3 || roundNumber === ROUND_4) { // if 2nd half of game, add text labels, change ball announcement
-                switch (color) {
-                    case RED:
-                        group.setAttribute('aria-label', `${color} ball, label ${RED_LABEL}`);
-                        text.textContent = RED_LABEL;
-                        break;
-                    case GREEN:
-                        group.setAttribute('aria-label', `${color} ball, label ${GREEN_LABEL}`);
-                        text.textContent = GREEN_LABEL;
-                        break;
-                    case YELLOW:
-                        group.setAttribute('aria-label', `${color} ball, label ${YELLOW_LABEL}`);
-                        text.textContent = YELLOW_LABEL;
-                        break;
-                }
             }
         
             group.addEventListener('click', function () {   // click handler for the group (text + circle)
@@ -305,6 +336,7 @@ const ColorblindGame = () =>{
     
         requestAnimationFrame(moveBalls);
     }
+
     /************** 
     GAME LOOP 
     ***************/
@@ -314,13 +346,15 @@ const ColorblindGame = () =>{
     createBalls();
     moveBalls(); // Start movement
 
+
   }, []);
+
 
   return (
     <GameShell>
       <div className="appContainer">
         <Container fluid style={{ padding: 10 }}> {/* Game title, right/wrong msg */}
-          <h2>Color Blindness - Round {roundNumber} of 4</h2>
+          <h2>Dimmed Details - Round {roundNumber} of 4</h2>
           <p ref={resultMessageRef} id="resultMessage" aria-live="assertive"></p>
         </Container>
         
@@ -334,20 +368,32 @@ const ColorblindGame = () =>{
             <Col className="text-start"><h3 id="computerScore">Computer: {computerScore}</h3></Col>
           </Row>
         </Container>
-        
-        { /* Game msgs + canvas (SVG, announcements) */ }
-        <h3 ref={targetColorTextRef} aria-live="assertive">Click the correct color ball</h3>
 
-        <svg ref={svgRef} className="gameCanvas" preserveAspectRatio="xMidYMid meet" role="group" aria-labelledby="canvas-title">
+        { /* Game msgs + canvas (SVG, announcements) */ }
+        <h3 ref={targetColorTextRef} aria-live="assertive" style={blurStyle}>Click the correct color ball</h3>
+
+
+        <svg ref={svgRef} className="gameCanvas" preserveAspectRatio="xMidYMid meet" role="group" aria-labelledby="canvas-title" style={blurStyle}>
           <title id="canvas-title">Game canvas with moving balls</title>
         </svg>
 
         { /* Game key */ }
         <div ref={gameKeyRef} id="gameKey"></div>
 
+        { /* Game Button */ }
+        {(roundNumber === 3 || roundNumber === 4) && (
+          <div className='buttondiv'>
+            <button className="zoombutton" onClick={makeNegative}>-</button>
+            <p id="zoomPercent">{zoomPercent} %</p>
+            <button className='zoombutton' onClick={makePositive}>+</button>
+          </div>
+        )}
+
+
+
         { /* Game over modal */ }
         <Modal ref={gameOverPopupRef} show={show} onHide={handleClose} centered>
-          <Modal.Header style={{ backgroundColor: MODAL_COLOR}} closeButton>
+          <Modal.Header style={{ backgroundColor: MODAL_COLOR}}>
             <Modal.Title className='w-100 text-center'><h2>{gameOverMessage}</h2></Modal.Title>
           </Modal.Header>
           <Modal.Body style={{ backgroundColor: MODAL_COLOR}}>
@@ -362,6 +408,7 @@ const ColorblindGame = () =>{
       </div>
     </GameShell>
   );
+  
 }
 
-export default ColorblindGame;
+export default DimmedDetailsGame;
