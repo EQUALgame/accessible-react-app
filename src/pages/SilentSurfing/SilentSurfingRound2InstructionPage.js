@@ -1,29 +1,36 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import InstructionPage from '../../components/InstructionPage';
 
-function SilentSurfingball2InstructionPage() {
+
+/**
+ * ColorClashInstructionPage Component
+ * Round 1/4 instruction page for Color Clash
+ * Uses the reusable InstructionPage component
+ */
+function SilentSurfingInstructionPage() {
+  // Instruction content for Round 1
   const instructions = [
-    "In this ball, you will play just as you did last ball, except the audio cue is gone — simulating an audio impairment.",
-    "You still need to pop the correct color: red, green, or yellow.",
-    "No text hints either. Can you figure out which balloon to pop without any cues?",
+    "In this round, you will have 30 seconds to pop as many red or green balls as possible.",
+    "You will see instructions to pop either a red or green ball displayed underneath the time bar.",
+    "Popping the correct color increases your score, while popping the incorrect color decreases your score and increases the computer's.",
     "Click the arrow to begin!"
   ];
 
-  const navigate = useNavigate();
-
+  // Handle start game action
   const handleStartGame = () => {
-    navigate('/silent-surfing-play/game/2');
+    console.log("Starting Silent Surfing Round 2...");
+    // TODO: Navigate to actual game page
   };
 
   return (
     <InstructionPage
-      title="Silent Surfing – ball 2/4"
+      title="Silent Surfing - Round 2/4"
       instructions={instructions}
+    //   imagePath=".png" // Path to your PNG image
       onStartGame={handleStartGame}
     />
   );
 }
 
-export default SilentSurfingball2InstructionPage;
+export default SilentSurfingInstructionPage;
 

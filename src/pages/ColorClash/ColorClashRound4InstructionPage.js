@@ -5,14 +5,14 @@ import { useNavigate, useParams } from 'react-router-dom';
 
 
 /**
- * ColorClashball4InstructionPage Component
- * ball 4/4 instruction page for Color Clash (Audio Harmony)
+ * ColorClashRound4InstructionPage Component
+ * Round 4/4 instruction page for Color Clash (Audio Harmony)
  */
-function ColorClashball4InstructionPage() {
+function ColorClashRound4InstructionPage() {
   const instructions = [
-    "In this ball, you will try to get as many points as possible by clicking on the right balloon.",
-    "You will see instructions to pop a red, green, or yellow balloon displayed underneath the ball timer.",
-    "Clicking on the right balloon gives you a point, while clicking on the wrong one takes one away from you and gives it to the computer.",
+    "In this round, you will try to get as many points as possible by clicking on the right ball.",
+    "You will see instructions to pop a red, green, or yellow ball displayed underneath the round timer.",
+    "Clicking on the right ball gives you a point, while clicking on the wrong one takes one away from you and gives it to the computer.",
     "Click the arrow to begin!"
   ];
 
@@ -25,12 +25,12 @@ function ColorClashball4InstructionPage() {
 
   return (
     <InstructionPage
-      title="Color Clash - ball 4/4"
+      title="Color Clash - Round 4/4"
       instructions={instructions}
-      imagePath={process.env.PUBLIC_URL + "/icons/colorClash/colorClashball4.svg"} 
+      imagePath={process.env.PUBLIC_URL + "/icons/colorClash/colorClashRound4.svg"} // Path to your PNG image
       onStartGame={handleStartGame}
     />
   );
 }
 
-export default ColorClashball4InstructionPage;
+export default ColorClashRound4InstructionPage;

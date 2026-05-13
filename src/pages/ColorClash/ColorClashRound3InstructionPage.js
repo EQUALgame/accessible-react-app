@@ -24,12 +24,12 @@ function ColorClashball3InstructionPage() {
 
   return (
     <InstructionPage
-      title="Color Clash - ball 3/4"
+      title="Color Clash - Round 3/4"
       instructions={instructions}
-      imagePath={process.env.PUBLIC_URL + "/icons/colorClash/colorClashball3.svg"} 
+      imagePath={process.env.PUBLIC_URL + "/icons/colorClash/colorClashRound3.svg"} 
       onStartGame={handleStartGame}
     />
   );
 }
 
-export default ColorClashball3InstructionPage;
+export default ColorClashRound3InstructionPage;
