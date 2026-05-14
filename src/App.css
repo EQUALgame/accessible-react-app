@@ -47,6 +47,84 @@
   background-color: #d5edff;          /* Hover */
 }
 
+.game-card-k8 {
+  background-color: #ebe5f8;          /* Normal */
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.game-card-k8:hover {
+  background-color: #d5c2fc;          /* Hover */
+}
+
+/* --- header active tab highlight --- */
+
+/* Desktop only: full-height active tab shade */
+@media (min-width: 992px) {
+  /* Remove navbar padding so items can fill edge-to-edge */
+  .navbar {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  /* Restore spacing on the logo instead */
+  .navbar-brand {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  /* Stretch collapse to full navbar height;
+     override Bootstrap's built-in align-items: center */
+  .navbar-collapse {
+    align-self: stretch;
+    align-items: stretch !important;
+  }
+
+  /* Stretch the nav row to match */
+  .navbar-nav {
+    align-items: stretch;
+  }
+
+  /* Each link fills full height, equal width, text centered inside */
+  .navbar-nav .nav-link {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    width: 120px;
+  }
+}
+
+.navbar-nav .nav-link.active {
+  background-color: #E3F2FD;
+}
+
+.navbar-nav .nav-link.nav-tab-k8.active {
+  background-color: #E4D8FF;
+}
+
+/* --- card title + subtitle: centered --- */
+.game-card .flex-grow-1,
+.game-card-k8 .flex-grow-1 {
+  text-align: center;
+}
+
+.game-card h5,
+.game-card-k8 h5 {
+  font-size: 1.3rem;
+}
+
+.game-card small,
+.game-card-k8 small {
+  font-size: 1rem;
+  color: #000 !important;  /* overrides Bootstrap text-muted */
+  display: block;
+  text-wrap: balance;
+}
+
 /* --- NEW: standardized card body & icon box --- */
 .game-card-body {
   display: flex;
@@ -80,8 +158,11 @@
   transition: opacity .15s ease;
 }
 
-.game-card:hover .icon-swap .state-default { opacity: 0; }
-.game-card:hover .icon-swap .state-hover  { opacity: 1; }
+.game-card:hover .icon-swap .state-default,
+.game-card-k8:hover .icon-swap .state-default { opacity: 0; }
+
+.game-card:hover .icon-swap .state-hover,
+.game-card-k8:hover .icon-swap .state-hover  { opacity: 1; }
 
 /* --- PNG state swap (stacked images) --- */
 .icon-swap-stack {
@@ -103,5 +184,9 @@
 }
 
 .icon-swap-stack img.hover-img { opacity: 0; }
-.game-card:hover .icon-swap-stack img.hover-img { opacity: 1; }
-.game-card:hover .icon-swap-stack img:not(.hover-img) { opacity: 0; }
+
+.game-card:hover .icon-swap-stack img.hover-img,
+.game-card-k8:hover .icon-swap-stack img.hover-img { opacity: 1; }
+
+.game-card:hover .icon-swap-stack img:not(.hover-img),
+.game-card-k8:hover .icon-swap-stack img:not(.hover-img) { opacity: 0; }

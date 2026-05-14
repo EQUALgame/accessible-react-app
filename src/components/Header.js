@@ -29,6 +29,7 @@ function Header() {
             <Nav.Link
               as={NavLink}
               to="/"
+              end
               className="mx-3 text-dark fw-semibold"
               style={{ textDecoration: 'none' }}
             >
@@ -39,7 +40,8 @@ function Header() {
             <Nav.Link
               as={NavLink}
               to="/k8"
-              className="mx-3 text-dark fw-semibold"
+              end
+              className="mx-3 text-dark fw-semibold nav-tab-k8"
               style={{ textDecoration: 'none' }}
             >
               K-8

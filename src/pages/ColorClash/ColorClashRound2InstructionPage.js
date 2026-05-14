@@ -9,9 +9,8 @@ import { useNavigate, useParams } from 'react-router-dom';
  */
 function ColorClashRound2InstructionPage() {
   const instructions = [
-    "In this round, you will have 30 seconds to pop as many red or green balls as possible.",
-    "You will see instructions to pop either a red or green ball displayed underneath the time bar.",
-    "Popping the correct color increases your score, while popping the incorrect color decreases your score and increases the computer's.",
+    "In this round, you will play by the same rules: You will have 30 seconds to pop as many green or red balls as you can.",
+    "This time, however, you will experience what it is like to play with red-green color blindness (AKA Deuteranomaly).",
     "Click the arrow to begin!"
   ];
   const navigate = useNavigate();

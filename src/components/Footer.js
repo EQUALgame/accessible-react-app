@@ -1,8 +1,8 @@
 import { Container } from 'react-bootstrap';
 
-function Footer() {
+function Footer({ bgColor = '#E3F2FD' }) {
   return (
-    <footer className="py-4 mt-2" style={{backgroundColor: '#E3F2FD'}}>
+    <footer className="py-4 mt-2" style={{backgroundColor: bgColor}}>
       <Container>
         <div className="text-center">
           <p className="mb-2" style={{fontSize: '14px'}}>

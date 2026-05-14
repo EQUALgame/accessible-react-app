@@ -13,20 +13,24 @@ import Footer from '../components/Footer';
  * @param {string} imagePath - Path to the preview image (e.g., "/images/colorclash-round1.png")
  * @param {function} onStartGame - Function to call when arrow button is clicked
  */
-function InstructionPage({ 
-  title, 
-  instructions = [], 
-  imagePath = null, 
-  onStartGame = () => {} 
+function InstructionPage({
+  title,
+  instructions = [],
+  imagePath = null,
+  onStartGame = () => {}
 }) {
+  const isK8 = sessionStorage.getItem('gameTheme') === 'k8';
+  const bgOuter = isK8 ? '#f1ecfd' : '#E3F2FD';
+  const bgCard  = isK8 ? '#ded0fc' : '#c1e1f7ff';
+
   return (
-    <div style={{backgroundColor: '#E3F2FD', minHeight: '100vh'}}>
-      
+    <div style={{backgroundColor: bgOuter, minHeight: '100vh'}}>
+
       {/* Main Content Section - Centered with Flexbox */}
-      <section 
-        className="d-flex align-items-center justify-content-center" 
+      <section
+        className="d-flex align-items-center justify-content-center"
         style={{
-          backgroundColor: '#E3F2FD',
+          backgroundColor: bgOuter,
           minHeight: '85vh',
           paddingTop: '1rem',
           paddingBottom: '1rem'
@@ -37,11 +41,11 @@ function InstructionPage({
             <div className="col-11 col-lg-10">
               
               {/* Instruction Card - Darker blue background */}
-              <div 
+              <div
                 className="rounded p-5 shadow position-relative"
                 style={{
                   borderRadius: '20px',
-                  backgroundColor: '#c1e1f7ff' // Darker blue as shown in screenshot
+                  backgroundColor: bgCard
                 }}
               >
 

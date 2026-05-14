@@ -7,11 +7,10 @@ import { useNavigate, useParams } from 'react-router-dom';
  * ColorClashball3InstructionPage Component
  * ball 3/4 instruction page for Color Clash (Click-free)
  */
-function ColorClashball3InstructionPage() {
+function ColorClashRound3InstructionPage() {
   const instructions = [
-    "In this ball, you will have 30 seconds to pop as many red, green, or yellow balloons as possible.",
-    "You will see instructions to pop either a red, green, or yellow balloon displayed underneath the time bar.",
-    "Popping the correct color increases your score, while popping the incorrect color decreases your score and increases the computer's.",
+    "In this round, you will play by the same rules: You will have 30 seconds to pop as many green or red balls as you can.",
+    "This time, however, each ball now has a letter inside it that shows its color: 'R' for red, 'Y' for yellow, and 'G' for green.",
     "Click the arrow to begin!"
   ];
 

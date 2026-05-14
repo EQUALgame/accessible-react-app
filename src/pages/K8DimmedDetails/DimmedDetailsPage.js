@@ -68,7 +68,8 @@ function DimmedDetailsPage() {
               </div>
 
               <Button
-                as={Link} to="/dimmed-details/round-1"              
+                as={Link} to="/dimmed-details/round-1"
+                onClick={() => sessionStorage.setItem('gameTheme', 'k8')}
                 variant="primary"
                 size="lg"
                 className="mt-3 px-4 py-2 fw-semibold"

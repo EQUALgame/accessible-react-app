@@ -10,9 +10,7 @@ import { useNavigate, useParams } from 'react-router-dom';
  */
 function ColorClashRound4InstructionPage() {
   const instructions = [
-    "In this round, you will try to get as many points as possible by clicking on the right ball.",
-    "You will see instructions to pop a red, green, or yellow ball displayed underneath the round timer.",
-    "Clicking on the right ball gives you a point, while clicking on the wrong one takes one away from you and gives it to the computer.",
+    "In this round, you will once again experience an auditory impairment simulation, but with the assistance of the line of text underneath the time bar which color to pop.",
     "Click the arrow to begin!"
   ];
 

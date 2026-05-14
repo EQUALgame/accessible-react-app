@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Container, Card, Row, Col } from 'react-bootstrap';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -20,6 +20,8 @@ import { Link } from 'react-router-dom';
  * Displays the main landing page with game cards and hero section
  */
 function HomePage() {
+  useEffect(() => { sessionStorage.removeItem('gameTheme'); }, []);
+
   return (
     <div>
       <Header />

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Container, Card, Row, Col } from 'react-bootstrap';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -20,6 +20,8 @@ import { Link } from 'react-router-dom';
  * Displays the main landing page with game cards and hero section
  */
 function K8Page() {
+  useEffect(() => { sessionStorage.removeItem('gameTheme'); }, []);
+
   return (
     <div>
       <Header />
@@ -78,7 +80,7 @@ function K8Page() {
               <Card
                 as={Link}
                 to="/k8/color-clash"
-                className="game-card h-100 shadow-sm border-0 text-decoration-none"
+                className="game-card-k8 h-100 shadow-sm border-0 text-decoration-none"
               >
                 <Card.Body className="p-3 d-flex align-items-center">
                   <div className="card-icon me-3">
@@ -97,7 +99,7 @@ function K8Page() {
               <Card
                 as={Link}
                 to="/k8/dimmed-details"
-                className="game-card h-100 shadow-sm border-0 text-decoration-none"
+                className="game-card-k8 h-100 shadow-sm border-0 text-decoration-none"
               >
                 <Card.Body className="p-3 d-flex align-items-center">
                   <div className="card-icon me-3">
@@ -116,7 +118,7 @@ function K8Page() {
               <Card
                 as={Link}
                 to="/sightless-search"
-                className="game-card h-100 shadow-sm border-0 text-decoration-none"
+                className="game-card-k8 h-100 shadow-sm border-0 text-decoration-none"
               >
                 <Card.Body className="p-3 d-flex align-items-center">
                   <div className="card-icon me-3">
@@ -136,7 +138,7 @@ function K8Page() {
               <Card
                 as={Link}
                 to="/silent-surfing"
-                className="game-card h-100 shadow-sm border-0 text-decoration-none"
+                className="game-card-k8 h-100 shadow-sm border-0 text-decoration-none"
               >
                 <Card.Body className="p-3 d-flex align-items-center">
                   <div className="card-icon me-3">
@@ -154,7 +156,7 @@ function K8Page() {
             {/* Touch Screen */}
             <Col lg={4} md={6}>
               <motion.div initial="rest" whileHover="hover" whileFocus="hover">
-                  <Card className="game-card h-100 shadow-sm border-0">
+                  <Card className="game-card-k8 h-100 shadow-sm border-0">
                     <Card.Body className="p-3 d-flex align-items-center">
                       <div className="card-icon me-3">
                         <TapTroubleIcon height={120} />
@@ -174,7 +176,7 @@ function K8Page() {
               <Card
                 as={Link}
                 to="/hesitant-hover"
-                className="game-card h-100 shadow-sm border-0 text-decoration-none"
+                className="game-card-k8 h-100 shadow-sm border-0 text-decoration-none"
               >
                 <Card.Body className="p-3 d-flex align-items-center">
                   <div className="card-icon me-3">
@@ -197,7 +199,7 @@ function K8Page() {
                 <Card 
                   as={Link}
                   to="/scrambled-script"
-                  className="game-card h-100 shadow-sm border-0 text-decoration-none"
+                  className="game-card-k8 h-100 shadow-sm border-0 text-decoration-none"
                 >
                   <Card.Body className="p-3 d-flex align-items-center">
                     <div className="card-icon me-3">
@@ -216,7 +218,7 @@ function K8Page() {
             {/* ADHD */}
             <Col lg={4} md={6}>
               <Card
-                className="game-card h-100 shadow-sm border-0"
+                className="game-card-k8 h-100 shadow-sm border-0"
               >
                 <Card.Body className="p-3 d-flex align-items-center">
                   <div className="card-icon me-3">
@@ -237,7 +239,7 @@ function K8Page() {
         </Container>
       </section>
 
-      <Footer />
+      <Footer bgColor="#E4D8FF" />
     </div>
   );
 }

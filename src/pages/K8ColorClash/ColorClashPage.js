@@ -1,15 +1,30 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Button, Row, Col } from 'react-bootstrap';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import { Link } from 'react-router-dom';
-import { color } from 'framer-motion';
 
 
 function ColorClashPage() {
-  const [playVideo, setPlayVideo] = useState(false);
-  const youtubeSrc = `https://www.youtube.com/embed/aHC02QpJJVY${playVideo ? '?autoplay=1' : ''}`;
+  const [isPlaying, setIsPlaying] = useState(false);
+  const iframeRef = useRef(null);
+  const youtubeSrc = `https://www.youtube.com/embed/aHC02QpJJVY?enablejsapi=1`;
+
+  const handleVideoToggle = () => {
+    const iframe = iframeRef.current;
+    if (!iframe) return;
+    if (isPlaying) {
+      iframe.contentWindow.postMessage(
+        JSON.stringify({ event: 'command', func: 'pauseVideo', args: [] }), '*'
+      );
+    } else {
+      iframe.contentWindow.postMessage(
+        JSON.stringify({ event: 'command', func: 'playVideo', args: [] }), '*'
+      );
+    }
+    setIsPlaying(prev => !prev);
+  };
 
   return (
     <div style={{ overflowX: 'hidden' }}>
@@ -65,6 +80,7 @@ function ColorClashPage() {
                 }}
               >
                 <iframe
+                  ref={iframeRef}
                   src={youtubeSrc}
                   frameBorder="0"
                   allow="autoplay; encrypted-media; fullscreen"
@@ -78,20 +94,20 @@ function ColorClashPage() {
               <Button
                 variant="primary"
                 size="lg"
-                onClick={() => setPlayVideo(true)}
+                onClick={handleVideoToggle}
                 className="mt-3 px-4 py-2 fw-semibold"
                 style={{
-                  fontSize: 'clamp(1.6rem, 4.5vw, 2rem)', // ✅ scales down on mobile
+                  fontSize: 'clamp(1.6rem, 4.5vw, 2rem)',
                   backgroundColor: '#AC8FE7',
                   border: 'none',
                   borderRadius: 20,
                   boxShadow: '0 4px 0 rgba(0,0,0,.2)',
-                  maxWidth: '100%',                        // ✅ never exceed column
-                  whiteSpace: 'normal',                    // ✅ allow wrap if needed
+                  maxWidth: '100%',
+                  whiteSpace: 'normal',
                   wordBreak: 'break-word'
                 }}
               >
-                {playVideo ? 'Playing Video' : 'Play Video'}
+                {isPlaying ? 'Pause Video' : 'Play Video'}
               </Button>
             </Col>
             {/* Start Game */}
@@ -124,6 +140,7 @@ function ColorClashPage() {
 
               <Button
                 as={Link} to="/color-clash/round-1"
+                onClick={() => sessionStorage.setItem('gameTheme', 'k8')}
                 size="lg"
                 className="mt-3 px-4 py-2 fw-semibold"
                 style={{

@@ -5,6 +5,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import ScrollToTop from "./components/ScrollToTop";
 
 import HomePage from './pages/HomePage';
+import K8Page from './pages/K8Page';
+import K8DimmedDetailsPage from './pages/K8DimmedDetails/DimmedDetailsPage';
+import K8ColorClashPage from './pages/K8ColorClash/ColorClashPage';
 
 import ColorClashRound from './games/colorclash/Round';
 import ColorClashGame from './games/colorclash/Game';
@@ -65,6 +68,12 @@ function App() {
       <Routes>
         {/* Home */}
         <Route path="/" element={<HomePage />} />
+        {/* K-8 */}
+        <Route path="/k8" element={<K8Page />} />
+
+        {/* K-8 Dimmed Details */}
+        <Route path="/k8/dimmed-details" element={<K8DimmedDetailsPage />} />
+        <Route path="/k8/color-clash" element={<K8ColorClashPage />} />
 
         {/* Color Clash */}
         <Route path="/color-clash" element={<ColorClashPage />} />
