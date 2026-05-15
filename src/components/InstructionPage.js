@@ -142,7 +142,6 @@ function InstructionPage({
         </Container>
       </section>
 
-      <Footer />
     </div>
   );
 }

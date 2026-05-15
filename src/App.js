@@ -5,6 +5,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import ScrollToTop from "./components/ScrollToTop";
 
 import HomePage from './pages/HomePage';
+import K8Page from './pages/K8Page';
+import K8DimmedDetailsPage from './pages/K8DimmedDetails/DimmedDetailsPage';
+import K8ColorClashPage from './pages/K8ColorClash/ColorClashPage';
+
 
 import ColorClashRound from './games/colorclash/Round';
 import ColorClashGame from './games/colorclash/Game';
@@ -24,11 +28,15 @@ import ScrambledScriptRound2InstructionPage from './pages/ScrambledScript/Scramb
 import ScrambledScriptRound3InstructionPage from './pages/ScrambledScript/ScrambledScriptRound3InstructionPage';
 import ScrambledScriptRound4InstructionPage from './pages/ScrambledScript/ScrambledScriptRound4InstructionPage';
 
+import DimmedDetailsGame from './games/dimmeddetails/Game';
+import DimmedDetailsScores from './games/dimmeddetails/Scores';
+
 import DimmedDetailsPage from './pages/DimmedDetails/DimmedDetailsPage';
 import DimmedDetailsRound1InstructionPage from './pages/DimmedDetails/DimmedDetailsRound1InstructionPage';
 import DimmedDetailsRound2InstructionPage from './pages/DimmedDetails/DimmedDetailsRound2InstructionPage';
 import DimmedDetailsRound3InstructionPage from './pages/DimmedDetails/DimmedDetailsRound3InstructionPage';
 import DimmedDetailsRound4InstructionPage from './pages/DimmedDetails/DimmedDetailsRound4InstructionPage';
+
 
 import SightlessSearchPage from './pages/SightlessSearch/SightlessSearchPage';
 import SightlessSearchRound1InstructionPage from './pages/SightlessSearch/SightlessSearchRound1InstructionPage';
@@ -53,6 +61,7 @@ import ScrambledScriptLearnPage from './pages/learn_more/ScrambledScriptLearnPag
 import SightlessSearchLearnPage from './pages/learn_more/SightlessSearchLearnPage';
 import SilentSurfingLearnPage from './pages/learn_more/SilentSurfingLearnPage';
 import HesitantHoverLearnPage from './pages/learn_more/HesitantHoverLearnPage';
+import { ImPieChart } from 'react-icons/im';
 
 function App() {
   return (
@@ -61,6 +70,14 @@ function App() {
       <Routes>
         {/* Home */}
         <Route path="/" element={<HomePage />} />
+
+        {/* K-8 */}
+        <Route path="/k8" element={<K8Page />} />
+
+        {/* K-8 Dimmed Details */}
+        <Route path="/k8/dimmed-details" element={<K8DimmedDetailsPage />} />
+        <Route path="/k8/color-clash" element={<K8ColorClashPage />} />
+
 
         {/* Color Clash */}
         <Route path="/color-clash" element={<ColorClashPage />} />
@@ -87,6 +104,8 @@ function App() {
         <Route path="/dimmed-details/round-3" element={<DimmedDetailsRound3InstructionPage />} />
         <Route path="/dimmed-details/round-4" element={<DimmedDetailsRound4InstructionPage />} />
         <Route path="/dimmed-details/learn-more" element={<DimmedDetailsLearnPage />} />
+        <Route path="/dimmed-details-play/game/:round" element={<DimmedDetailsGame />} />
+        <Route path="/dimmed-details-play/recap" element={<DimmedDetailsScores />} />
 
         {/* Sightless Search */}
         <Route path="/sightless-search" element={<SightlessSearchPage />} />

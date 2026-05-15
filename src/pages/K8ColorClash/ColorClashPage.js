@@ -1,24 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Button, Row, Col } from 'react-bootstrap';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import { Link } from 'react-router-dom';
-import Table from 'react-bootstrap/Table';
+import { color } from 'framer-motion';
 
-function DimmedDetailsPage() {
+
+function ColorClashPage() {
+  const [playVideo, setPlayVideo] = useState(false);
+  const youtubeSrc = `https://www.youtube.com/embed/aHC02QpJJVY${playVideo ? '?autoplay=1' : ''}`;
+
   return (
-    <div>
+    <div style={{ overflowX: 'hidden' }}>
       <Header />
 
       {/* HERO + ACTION */}
-      <section className="py-5" style={{ backgroundColor: '#E3F2FD', position: 'relative' }}>
+      <section className="py-5" style={{ backgroundColor: '#E4D8FF', position: 'relative' }}>
 
         <Container>
           <div className="text-center mb-5">
-            <h1 className="display-4 fw-bold text-dark mb-2"> Dimmed Details</h1>
+            <h1 className="display-4 fw-bold text-dark mb-2">Color Clash</h1>
             <p className="fs-5 text-dark mb-2">
-              Accessibility for Low Vision{' '}
+              Accessibility for Color Blindness{' '}
               <button
                 type="button"
                 onClick={() => {
@@ -43,52 +47,14 @@ function DimmedDetailsPage() {
 
           <Row className="justify-content-center g-4">
 
-            {/* Start Game */}
-            <Col md={6} className="text-center">
-              <div
-                style={{
-                  backgroundColor: '#78A9CF',
-                  borderRadius: 12,
-                  padding: '20px',
-                  height: '360px',        
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'center'
-                }}
-              >
-                <img
-                  src={process.env.PUBLIC_URL + "/icons/dimmedDetails/dimmedDetailsRound2.svg"}
-                  alt="Dimmed Details game illustration"
-                  style={{
-                    maxWidth: '100%',
-                    height: '280px',
-                    objectFit: 'contain'
-                  }}
-                />
-              </div>
-
-              <Button
-                as={Link} to="/dimmed-details/round-1"              
-                variant="primary"
-                size="lg"
-                className="mt-3 px-4 py-2 fw-semibold"
-                style={{
-                  fontSize: '2rem',
-                  backgroundColor: '#6BA3D6',
-                  border: 'none',
-                  borderRadius: 20,
-                  boxShadow: '0 4px 0 rgba(0,0,0,.2)'
-                }}
-              >
-                Start Game
-              </Button>
-            </Col>
-
             {/* Implementing Accessibility */}
             <Col md={6} className="text-center">
               <div
                 style={{
-                  backgroundColor: '#78A9CF',
+                  backgroundColor: '#BFA1FFBF',
+                  borderColor: '#AE8EF2',
+                  borderStyle: 'solid',
+                  borderWidth: '2px',
                   borderRadius: 12,
                   padding: '20px',
                   height: '360px',        
@@ -98,45 +64,80 @@ function DimmedDetailsPage() {
                   alignItems: 'center'
                 }}
               >
-                <div
-                  style={{
-                    fontSize: 'clamp(1.4rem, 4.5vw, 1.7rem)',
-                    fontWeight: '700',
-                    color: 'white',
-                    marginBottom: '10px'
-                  }}
-                >
-                  Implementing Accessibility
-                </div>
+                <iframe
+                  src={youtubeSrc}
+                  frameBorder="0"
+                  allow="autoplay; encrypted-media; fullscreen"
+                  allowFullScreen
+                  title="Color Clash introduction video"
+                  width="100%"
+                  height="330px"
+                />
+              </div>
 
+              <Button
+                variant="primary"
+                size="lg"
+                onClick={() => setPlayVideo(true)}
+                className="mt-3 px-4 py-2 fw-semibold"
+                style={{
+                  fontSize: 'clamp(1.6rem, 4.5vw, 2rem)', // ✅ scales down on mobile
+                  backgroundColor: '#AC8FE7',
+                  border: 'none',
+                  borderRadius: 20,
+                  boxShadow: '0 4px 0 rgba(0,0,0,.2)',
+                  maxWidth: '100%',                        // ✅ never exceed column
+                  whiteSpace: 'normal',                    // ✅ allow wrap if needed
+                  wordBreak: 'break-word'
+                }}
+              >
+                {playVideo ? 'Playing Video' : 'Play Video'}
+              </Button>
+            </Col>
+            {/* Start Game */}
+            <Col md={6} className="text-center">
+              <div
+                style={{
+                  backgroundColor: '#BFA1FFBF',
+                  borderColor: '#AE8EF2',
+                  borderStyle: 'solid',
+                  borderWidth: '2px',
+                  borderRadius: 12,
+                  padding: '20px',
+                  height: '360px',        
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'center'
+                }}
+              >
                 <img
-                  src={process.env.PUBLIC_URL + "/icons/learnMoreDown.svg"}
-                  alt="Implementing accessibility illustration"
+                  src={process.env.PUBLIC_URL + "/icons/colorClash/colorClashRound2.svg"}
+                  alt="Color Clash game illustration"
                   style={{
                     maxWidth: '100%',
                     height: '280px',
-                    objectFit: 'contain'
+                    objectFit: 'contain',
+                    display: 'block'
                   }}
                 />
               </div>
 
               <Button
-                as={Link} to="/dimmed-details/learn-more"
-                variant="primary"
+                as={Link} to="/color-clash/round-1"
                 size="lg"
                 className="mt-3 px-4 py-2 fw-semibold"
                 style={{
-                  fontSize: 'clamp(1.6rem, 4.5vw, 2rem)', 
-                  backgroundColor: '#6BA3D6',
+                  fontSize: 'clamp(1.6rem, 4.5vw, 2rem)', // ✅ scales down on mobile
+                  backgroundColor: '#AC8FE7',
                   border: 'none',
                   borderRadius: 20,
                   boxShadow: '0 4px 0 rgba(0,0,0,.2)',
-                  maxWidth: '100%',                        
-                  whiteSpace: 'normal',                    
+                  maxWidth: '100%',                        // ✅ never exceed column
+                  whiteSpace: 'normal',                    // ✅ allow wrap if needed
                   wordBreak: 'break-word'
                 }}
               >
-                Learn More
+                Start Game
               </Button>
             </Col>
 
@@ -145,14 +146,14 @@ function DimmedDetailsPage() {
         </Container>
       </section>
 
-      {/* ALWAYS VISIBLE SECTION */}
+      {/* TABLE + DEFINITIONS */}
       <section id="more-about" className="py-5 border-top">
         <Container className="text-center" style={{ maxWidth: '800px' }}>
-          <h2 className="fw-bold display-6 text-primary mb-4">
-            Universally Designing For Low Vision 
+          <h2 className="fw-bold display-6 mb-4" style={{color: '#774FCA'}}>
+            Universally Designing With Color 
           </h2>
           <p className="fs-5">
-            Useful for those with low vision, older adults, and also enhances vision for tired eyes!
+             Useful for people with color blindness, sensitive eyes, visual processing disorders, and also helps improve vision in low-light conditions!
           </p>
         </Container>
 
@@ -168,15 +169,15 @@ function DimmedDetailsPage() {
             }}>
             <thead>
               <tr>
-                <th style={{ backgroundColor: "#B6D5EB99", border: "none", width: "33.33%", padding: "12px", fontWeight: "normal", fontStyle: "italic", fontSize: "20px" }}>
+                <th style={{ backgroundColor: "#E4D8FF", border: "none", width: "33.33%", padding: "12px", fontWeight: "normal", fontStyle: "italic", fontSize: "20px" }}>
                   Permanent
                 </th>
 
-                <th style={{ backgroundColor: "#B6D5EB99", border: "none", width: "33.33%", padding: "12px", fontWeight: "normal", fontStyle: "italic", fontSize: "20px" }}>
+                <th style={{ backgroundColor: "#E4D8FF", border: "none", width: "33.33%", padding: "12px", fontWeight: "normal", fontStyle: "italic", fontSize: "20px" }}>
                   Temporary
                 </th>
 
-                <th style={{ backgroundColor: "#B6D5EB99", border: "none", width: "33.33%", padding: "12px", fontWeight: "normal", fontStyle: "italic", fontSize: "20px" }}>
+                <th style={{ backgroundColor: "#E4D8FF", border: "none", width: "33.33%", padding: "12px", fontWeight: "normal", fontStyle: "italic", fontSize: "20px" }}>
                   Situational
                 </th>
               </tr>
@@ -192,8 +193,8 @@ function DimmedDetailsPage() {
                   }}
                 >
                   <ul className="text-start mb-0">
-                    <li>Low Vision</li>
-                    <li>Glaucoma</li>
+                    <li>Color blindness</li>
+                    <li>Low vision </li>
                   </ul>
                 </td>
 
@@ -206,8 +207,8 @@ function DimmedDetailsPage() {
                   }}
                 >
                   <ul className="text-start mb-0">
-                    <li>Eye Surgery</li>
-                    <li>Dilated Eyes</li>
+                    <li>Cataract (blurry vision)</li>
+                    <li>Eye infections</li>
                   </ul>
                 </td>
 
@@ -220,8 +221,8 @@ function DimmedDetailsPage() {
                   }}
                 >
                   <ul className="text-start mb-0">
-                    <li>Environmental light conditions (sun, fog)</li>
-                    <li>Using screen when walking</li>
+                    <li>Low light conditions</li>
+                    <li>Driving at night</li>
                   </ul>
                 </td>
               </tr>
@@ -241,7 +242,7 @@ function DimmedDetailsPage() {
             <strong>Temporary:</strong> A condition that prevents an individual from performing their activities for a limited period
           </p>
           <p>
-            <strong>Situational:</strong> A temporary limitation in a person’s ability to interact with their environment or technology, caused by a momentary circumstance.          
+            <strong>Situational:</strong> A temporary limitation in a person’s ability to interact with their environment or technology, caused by a momentary circumstance.
           </p>
         </Container>
       </section>
@@ -251,4 +252,4 @@ function DimmedDetailsPage() {
   );
 }
 
-export default DimmedDetailsPage;
+export default ColorClashPage;

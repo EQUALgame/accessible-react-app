@@ -156,10 +156,6 @@ function DimmedDetailsLearn() {
             </>
           );
         })()}
-
-        <p style={{ maxWidth: 780, margin: '2.0rem auto 0', lineHeight: 1.55 }}>
-          Comment: need to update INFO here.
-        </p>
       </section>
 
 
@@ -168,6 +164,7 @@ function DimmedDetailsLearn() {
       <section>
         <h2
           style={{
+            textAlign: 'center',
             fontSize: 'clamp(1.4rem, 5vw, 2.2rem)', 
             color: '#243563',
             fontWeight: 800,
@@ -188,9 +185,6 @@ function DimmedDetailsLearn() {
             setOpenId={setOpenId}
             text="1. Avoid very small text, buttons, labels, and images"
           >
-            <p>
-              Comment: (1) need to update the images here. (2) need to make the size of each image consistent of each dropdown. 
-            </p>
             <div style={{ display: 'flex',
                   justifyContent: 'center',
                   alignItems: 'center',
@@ -202,14 +196,6 @@ function DimmedDetailsLearn() {
                     src={process.env.PUBLIC_URL + "/icons/dimmedDetails/avoid1.png"}
                     alt="Avoid example"
                     style={{ width: '85%', maxWidth: '220px', height: 'auto', borderRadius: '8px' }}
-                  />
-                </div>
-
-                <div style={{ textAlign: 'center' }}>
-                  <img
-                    src={process.env.PUBLIC_URL + "/icons/dimmedDetails/instead1.png"}
-                    alt="Instead example"
-                    style={{ width: '100%', maxWidth: '220px', height: 'auto', borderRadius: '8px' }}
                   />
                 </div>
               </div>
@@ -229,19 +215,21 @@ function DimmedDetailsLearn() {
               flexWrap: 'wrap',           // ✅ allow wrapping
               gap: '1.5rem',              // smaller gap
               marginTop: '1rem' }}>
-                <div style={{ textAlign: 'center' }}>
-                  <img
-                    src={process.env.PUBLIC_URL + "/icons/dimmedDetails/ic_twotone-zoom-in-map.png"}
-                    alt="Zoom-in icon example one"
-                    style={{ width: '100%', maxWidth: '220px', height: 'auto', borderRadius: '8px' }}
-                  />
-                </div>
 
                 <div style={{ textAlign: 'center' }}>
                   <img
                     src={process.env.PUBLIC_URL + "/icons/dimmedDetails/ic_baseline-zoom-in.png"}
                     alt="Zoom-in icon example two"
-                    style={{ width: '100%', maxWidth: '220px', height: 'auto', borderRadius: '8px' }}
+                    style={{ width: '65%', maxWidth: '220px', height: 'auto', borderRadius: '8px' }}
+                  />
+                </div>
+
+
+                <div style={{ textAlign: 'center' }}>
+                  <img
+                    src={process.env.PUBLIC_URL + "/icons/dimmedDetails/ic_twotone-zoom-in-map.png"}
+                    alt="Zoom-in icon example one"
+                    style={{ width: '65%', maxWidth: '220px', height: 'auto', borderRadius: '8px' }}
                   />
                 </div>
 
@@ -249,7 +237,7 @@ function DimmedDetailsLearn() {
                   <img
                     src={process.env.PUBLIC_URL + "/icons/dimmedDetails/icon-park-twotone_zoom-internal.png"}
                     alt="Zoom-in icon example three"
-                    style={{ width: '100%', maxWidth: '220px', height: 'auto', borderRadius: '8px' }}
+                    style={{ width: '65%', maxWidth: '220px', height: 'auto', borderRadius: '8px' }}
                   />
                 </div>
               </div>
@@ -261,20 +249,20 @@ function DimmedDetailsLearn() {
             setOpenId={setOpenId}
             text="3. Check that the page layout doesn’t interfere with readability"
           >
-            <p>
-                Image from webstyleguide.com
-            </p>
+
             <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', 
                   gap: '1.5rem', marginTop: '1rem' }}>
                 <div style={{ textAlign: 'center' }}>
                   <img
                     src={process.env.PUBLIC_URL + "/icons/dimmedDetails/image 6.png"}
                     alt="Image from webstyleguide.com"
-                    style={{ width: '100%', maxWidth: '600px', height: 'auto', borderRadius: '5px' }}
+                    style={{ width: '85%', maxWidth: '500px', height: 'auto', borderRadius: '8px' }}
                   />
                 </div>
-
               </div>
+              <p>
+                Image from webstyleguide.com
+              </p>
           </DropdownRow>
 
           <DropdownRow
@@ -323,7 +311,7 @@ function DimmedDetailsLearn() {
                   <img
                     src={process.env.PUBLIC_URL + "/icons/dimmedDetails/Group 176.png"}
                     alt="Inllustration of keyboard-friendly software"
-                    style={{ width: '85%', maxWidth: '220px', height: 'auto', borderRadius: '8px' }}
+                    style={{ width: '70%', maxWidth: '220px', height: 'auto', borderRadius: '8px' }}
                   />
                 </div>
 
@@ -331,7 +319,7 @@ function DimmedDetailsLearn() {
                   <img
                     src={process.env.PUBLIC_URL + "/icons/dimmedDetails/Group 177.png"}
                     alt="Inllustration of not cursor reliant software"
-                    style={{ width: '100%', maxWidth: '220px', height: 'auto', borderRadius: '8px' }}
+                    style={{ width: '50%', maxWidth: '220px', height: 'auto', borderRadius: '8px' }}
                   />
                 </div>
             </div>
@@ -346,8 +334,8 @@ function DimmedDetailsLearn() {
   return (
     <LearnMorePage
       title="Implementing Accessibility:"
-      subtitle="Designing for Color Blindness and More"
-      imagePath={process.env.PUBLIC_URL + "/icons/color-blindness-illustration.png"}
+      subtitle="Designing for Low Vision and More"
+      imagePath={process.env.PUBLIC_URL + "/icons/dimmedDetails/dimmedDetailsLearnMoreIcon.png"}
       content={content}
     />
   );
