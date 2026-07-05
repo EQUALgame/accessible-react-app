@@ -12,24 +12,6 @@ function ColorClashPage() {
 
       {/* HERO + ACTION */}
       <section className="py-5" style={{ backgroundColor: '#E3F2FD', position: 'relative' }}>
-        {/* Back button - top left
-        <a
-          href="/"
-          aria-label="Go back to home page"
-          style={{
-            position: 'absolute',
-            top: '1.5rem',
-            left: '1.5rem',
-            background: 'transparent',
-            border: 'none',
-            fontSize: '2rem',
-            cursor: 'pointer',
-            color: '#002B5B',
-            textDecoration: 'none',
-          }}
-        >
-          &lt;
-        </a> */}
 
         <Container>
           <div className="text-center mb-5">

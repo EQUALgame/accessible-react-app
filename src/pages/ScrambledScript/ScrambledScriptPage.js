@@ -12,24 +12,6 @@ function ScrambledScriptPage() {
 
       {/* HERO + ACTION */}
       <section className="py-5" style={{ backgroundColor: '#E3F2FD', position: 'relative' }}>
-        {/* Back button - top left
-        <a
-          href="/"
-          aria-label="Go back to home page"
-          style={{
-            position: 'absolute',
-            top: '1.5rem',
-            left: '1.5rem',
-            background: 'transparent',
-            border: 'none',
-            fontSize: '2rem',
-            cursor: 'pointer',
-            color: '#002B5B',
-            textDecoration: 'none',
-          }}
-        >
-          &lt;
-        </a> */}
 
         <Container>
           <div className="text-center mb-5">
@@ -85,15 +67,18 @@ function ScrambledScriptPage() {
               </div>
 
               <Button
-                variant="primary"
+                as={Link} to="/scrambled-script/round-1"
                 size="lg"
                 className="mt-3 px-4 py-2 fw-semibold"
                 style={{
-                  fontSize: '2rem',
+                  fontSize: 'clamp(1.6rem, 4.5vw, 2rem)', // ✅ scales down on mobile
                   backgroundColor: '#6BA3D6',
                   border: 'none',
                   borderRadius: 20,
-                  boxShadow: '0 4px 0 rgba(0,0,0,.2)'
+                  boxShadow: '0 4px 0 rgba(0,0,0,.2)',
+                  maxWidth: '100%',                        // ✅ never exceed column
+                  whiteSpace: 'normal',                    // ✅ allow wrap if needed
+                  wordBreak: 'break-word'
                 }}
               >
                 Start Game

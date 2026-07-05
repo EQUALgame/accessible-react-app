@@ -22,7 +22,6 @@ function DimmedDetailsInstructionPage() {
   // Handle start game action
   const handleStartGame = () => {
     console.log("Starting Dimmed Details Round 1...");
-    // TODO: Navigate to actual game page
     navigate(`/dimmed-details-play/game/1`);
   };
 

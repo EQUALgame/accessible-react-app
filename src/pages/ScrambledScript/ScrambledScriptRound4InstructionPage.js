@@ -1,5 +1,6 @@
 import React from 'react';
 import InstructionPage from '../../components/InstructionPage';
+import { useNavigate, useParams } from 'react-router-dom';
 
 
 /**
@@ -16,17 +17,19 @@ function ScrambledScriptInstructionPage() {
     "Click the arrow to begin!"
   ];
 
+  const navigate = useNavigate();
+
   // Handle start game action
   const handleStartGame = () => {
     console.log("Starting Scrambled Script Round 4...");
-    // TODO: Navigate to actual game page
+    navigate(`/scrambled-script-play/game/4`);
   };
 
   return (
     <InstructionPage
       title="Scrambled Script - Round 4/4"
       instructions={instructions}
-    //   imagePath=".png" // Path to your PNG image
+      imagePath={process.env.PUBLIC_URL + "/icons/scrambledScript/scrambledScriptRound4.svg"} 
       onStartGame={handleStartGame}
     />
   );

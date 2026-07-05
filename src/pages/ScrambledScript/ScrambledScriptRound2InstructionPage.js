@@ -1,14 +1,15 @@
 import React from 'react';
 import InstructionPage from '../../components/InstructionPage';
+import { useNavigate, useParams } from 'react-router-dom';
 
 
 /**
- * ColorClashInstructionPage Component
- * Round 1/4 instruction page for Color Clash
+ * ScrambledScriptInstructionPage Component
+ * Round 2/4 instruction page for Scrambled Script
  * Uses the reusable InstructionPage component
  */
 function ScrambledScriptInstructionPage() {
-  // Instruction content for Round 1
+  // Instruction content for Round 2
   const instructions = [
     "In this round, you will have 30 seconds to pop as many red or green balloons as possible.",
     "You will see instructions to pop either a red or green balloon displayed underneath the time bar.",
@@ -16,17 +17,18 @@ function ScrambledScriptInstructionPage() {
     "Click the arrow to begin!"
   ];
 
+  const navigate = useNavigate();
+
   // Handle start game action
   const handleStartGame = () => {
     console.log("Starting Scrambled Script Round 2...");
-    // TODO: Navigate to actual game page
-  };
+    navigate(`/scrambled-script-play/game/2`);};
 
   return (
     <InstructionPage
       title="Scrambled Script - Round 2/4"
       instructions={instructions}
-    //   imagePath=".png" // Path to your PNG image
+      imagePath={process.env.PUBLIC_URL + "/icons/scrambledScript/scrambledScriptRound2.svg"} 
       onStartGame={handleStartGame}
     />
   );
