@@ -232,17 +232,19 @@ const ScrambledScriptGame = () =>{
             ball.setAttribute('cy', 0);
             ball.setAttribute('r', radius.current);
             ball.setAttribute('fill', color_val);
+
+            const size = radius.current * 0.8;
+
             
             //TEXT
             const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');    // text to visually indicate ball color with a letter
             text.setAttribute('x', 0);
-            text.setAttribute('y', radius.current * 0.25); // adjustment to center text
+            text.setAttribute('y', size/4); // adjustment to center text
             text.setAttribute('text-anchor', 'middle');
             text.setAttribute('font-size', radius.current * 0.5);
             text.setAttribute('fill', 'black');
             text.setAttribute('pointer-events', 'none');
             
-            const size = radius.current * 0.8;
 
             // IMAGE
             const image = document.createElementNS("http://www.w3.org/2000/svg", "image");
@@ -293,7 +295,7 @@ const ScrambledScriptGame = () =>{
 
             if (roundNumber === ROUND_3 || roundNumber === ROUND_4) {
               group.appendChild(image);
-              text.setAttribute('y', radius.current/2); // adjustment to center text
+              text.setAttribute('y', size/2); // adjustment to center text
             }
         
             // store group + position, color data
@@ -365,15 +367,6 @@ const ScrambledScriptGame = () =>{
 
         { /* Game key */ }
         <div ref={gameKeyRef} id="gameKey"></div>
-
-        { /* Game Button */ }
-        {/* {(roundNumber === 3 || roundNumber === 4) && (
-          <div className='buttondiv'>
-            <button className="zoombutton" onClick={makeNegative}>-</button>
-            <p id="zoomPercent">{zoomPercent} %</p>
-            <button className='zoombutton' onClick={makePositive}>+</button>
-          </div>
-        )} */}
 
 
 
