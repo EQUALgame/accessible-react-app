@@ -147,16 +147,105 @@ function ScrambledScriptPage() {
       </section>
 
       {/* ALWAYS VISIBLE SECTION */}
-      <section id="more-about" className="py-5 border-top">
-        <Container className="text-center">
-          <h2 className="fw-bold display-6 text-primary mb-4">
-            More About Scrambled Script
-          </h2>
-          <p className="fst-italic fs-5" style={{ maxWidth: '1000px', margin: '0 auto' }}>
-            This game shows what reading text can feel like for people with dyslexia. It helps us understand how to design text that can be read and understood easily.
-          </p>
-        </Container>
-      </section>
+        <section id="more-about" className="py-5 border-top">
+          <Container className="text-center" style={{ maxWidth: '800px' }}>
+            <h2 className="fw-bold display-6 text-primary mb-4">
+              Universally Designing for Dyslexia 
+            </h2>
+            <p className="fs-5">
+              Useful for people with dyslexia, limited language literacy, ADHD, and cognitive disabilities, and also provide support for people learning new languages.
+            </p>
+          </Container>
+  
+          {/* TABLE + DEFINITIONS */}
+          <Container className="text-center">
+            <table
+              className=" text-center"
+              style={{
+                width: "60%",
+                margin: "0 auto",
+                borderCollapse: "separate",
+                borderSpacing: "12px"
+              }}>
+              <thead>
+                <tr>
+                  <th style={{ backgroundColor: "#B6D5EB99", border: "none", width: "33.33%", padding: "12px", fontWeight: "normal", fontStyle: "italic", fontSize: "20px" }}>
+                    Permanent
+                  </th>
+  
+                  <th style={{ backgroundColor: "#B6D5EB99", border: "none", width: "33.33%", padding: "12px", fontWeight: "normal", fontStyle: "italic", fontSize: "20px" }}>
+                    Temporary
+                  </th>
+  
+                  <th style={{ backgroundColor: "#B6D5EB99", border: "none", width: "33.33%", padding: "12px", fontWeight: "normal", fontStyle: "italic", fontSize: "20px" }}>
+                    Situational
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td
+                    style={{
+                      border: "1px solid black",
+                      padding: "12px",
+                      verticalAlign: "top",
+                      width: "33.33%"
+                    }}
+                  >
+                    <ul className="text-start mb-0">
+                      <li>Dyslexia</li>
+                      <li>Low comprehension</li>
+                    </ul>
+                  </td>
+  
+                  <td
+                    style={{
+                      border: "1px solid black",
+                      padding: "12px",
+                      verticalAlign: "top",
+                      width: "33.33%"
+                    }}
+                  >
+                    <ul className="text-start mb-0">
+                      <li>Stress or fatigue</li>
+                      <li>Concussion</li>
+                    </ul>
+                  </td>
+  
+                  <td
+                    style={{
+                      border: "1px solid black",
+                      padding: "12px",
+                      verticalAlign: "top",
+                      width: "33.33%"
+                    }}
+                  >
+                    <ul className="text-start mb-0">
+                      <li>Non-native speaker</li>
+                      <li>Distracting environment</li>
+                    </ul>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </Container>
+  
+  
+          <Container className='text-start' style={{ maxWidth: '800px', margin: '0 auto' }}>
+            <p className="fs-5 fw-bold" style={{  color: '#272A79' }}>
+              Types of disabilities:         
+            </p>
+            <p>
+              <strong>Permanent:</strong> A disability that diminishes an individual’s ability to perform tasks at the same capacity that the individual was able to before their condition.
+            </p>
+            <p>
+              <strong>Temporary:</strong> A condition that prevents an individual from performing their activities for a limited period.
+            </p>
+            <p>
+              <strong>Situational:</strong> A temporary limitation in a person’s ability to interact with their environment or technology, caused by a momentary circumstance.          
+            </p>
+          </Container>
+        </section>
 
       <Footer />
     </div>

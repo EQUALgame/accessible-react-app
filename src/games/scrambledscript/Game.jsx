@@ -233,9 +233,9 @@ const ScrambledScriptGame = () =>{
             ball.setAttribute('r', radius.current);
             ball.setAttribute('fill', color_val);
 
+
             const size = radius.current * 0.8;
 
-            
             //TEXT
             const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');    // text to visually indicate ball color with a letter
             text.setAttribute('x', 0);

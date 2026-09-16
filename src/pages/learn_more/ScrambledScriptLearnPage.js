@@ -157,9 +157,7 @@ function ScrambledScriptLearn() {
           );
         })()}
 
-        <p style={{ maxWidth: 780, margin: '2.0rem auto 0', lineHeight: 1.55 }}>
-          Comment: need to update INFO here.
-        </p>
+       
       </section>
 
 
@@ -173,6 +171,7 @@ function ScrambledScriptLearn() {
             fontWeight: 800,
             marginBottom: '1.6rem',
             textShadow: '0 1px 1px rgba(0,0,0,0.2)',
+            textAlign: 'center',
           }}
         >
           Improving Accessibility for Dyslexia
@@ -198,7 +197,7 @@ function ScrambledScriptLearn() {
                   <img
                     src={process.env.PUBLIC_URL + "/icons/scrambledScript/Group 118.png"}
                     alt="Avoid example and Instead example"
-                    style={{ width: '85%', maxWidth: '400px', height: 'auto', borderRadius: '8px' }}
+                    style={{ width: '100%', maxWidth: '600px', height: 'auto', borderRadius: '8px' }}
                   />
                 </div>
               </div>
@@ -210,36 +209,18 @@ function ScrambledScriptLearn() {
             setOpenId={setOpenId}
             text="2. Use simple language and sentence structure whenever possible.  "
           >
-            <p>
-              Comment: need to update the images here.
-            </p>
             <div style={{ display: 'flex', justifyContent: 'center', 
               flexWrap: 'wrap',           // ✅ allow wrapping
+              flexDirection: 'column',
               gap: '1.5rem',              // smaller gap
               marginTop: '1rem' }}>
-                {/* <div style={{ textAlign: 'center' }}>
+                <div style={{ textAlign: 'center' }}>
                   <img
-                    src={process.env.PUBLIC_URL + "/icons/dimmedDetails/ic_twotone-zoom-in-map.png"}
+                    src={process.env.PUBLIC_URL + "/icons/scrambledScript/Group 236.png"}
                     alt="Zoom-in icon example one"
-                    style={{ width: '100%', maxWidth: '220px', height: 'auto', borderRadius: '8px' }}
+                    style={{ width: '100%', maxWidth: '600px', height: 'auto', borderRadius: '8px' }}
                   />
                 </div>
-
-                <div style={{ textAlign: 'center' }}>
-                  <img
-                    src={process.env.PUBLIC_URL + "/icons/dimmedDetails/ic_baseline-zoom-in.png"}
-                    alt="Zoom-in icon example two"
-                    style={{ width: '100%', maxWidth: '220px', height: 'auto', borderRadius: '8px' }}
-                  />
-                </div>
-
-                <div style={{ textAlign: 'center' }}>
-                  <img
-                    src={process.env.PUBLIC_URL + "/icons/dimmedDetails/icon-park-twotone_zoom-internal.png"}
-                    alt="Zoom-in icon example three"
-                    style={{ width: '100%', maxWidth: '220px', height: 'auto', borderRadius: '8px' }}
-                  />
-                </div> */}
               </div>
           </DropdownRow>
 
@@ -249,18 +230,15 @@ function ScrambledScriptLearn() {
             setOpenId={setOpenId}
             text="3. Break up paragraphs and include ample whitespace"
           >
-            <p>
-                Comment: need to update here.
-            </p>
             <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', 
                   gap: '1.5rem', marginTop: '1rem' }}>
-                {/* <div style={{ textAlign: 'center' }}>
+                <div style={{ textAlign: 'center' }}>
                   <img
-                    src={process.env.PUBLIC_URL + "/icons/dimmedDetails/image 6.png"}
+                    src={process.env.PUBLIC_URL + "/icons/scrambledScript/Group 237.png"}
                     alt="Image from webstyleguide.com"
                     style={{ width: '100%', maxWidth: '600px', height: 'auto', borderRadius: '5px' }}
                   />
-                </div> */}
+                </div>
 
               </div>
           </DropdownRow>
@@ -277,17 +255,9 @@ function ScrambledScriptLearn() {
               marginTop: '1rem' }}>
                 <div style={{ textAlign: 'center' }}>
                   <img
-                    src={process.env.PUBLIC_URL + "/icons/colorClash/avoid2.svg"}
+                    src={process.env.PUBLIC_URL + "/icons/scrambledScript/Group 238.png"}
                     alt="Avoid example"
-                    style={{ width: '100%', maxWidth: '220px', height: 'auto', borderRadius: '8px' }}
-                  />
-                </div>
-
-                <div style={{ textAlign: 'center' }}>
-                  <img
-                    src={process.env.PUBLIC_URL + "/icons/colorClash/instead2.svg"}
-                    alt="Instead example"
-                    style={{ width: '100%', maxWidth: '220px', height: 'auto', borderRadius: '8px' }}
+                    style={{ width: '100%', maxWidth: '500px', height: 'auto', borderRadius: '8px' }}
                   />
                 </div>
             </div>
@@ -299,28 +269,19 @@ function ScrambledScriptLearn() {
             setOpenId={setOpenId}
             text="5. Examples of font and layout options may be helpful"
           >
-            <p>Comment: need to update here. </p>
             <div style={{ display: 'flex',
                   justifyContent: 'center',
                   alignItems: 'center',
                   flexWrap: 'wrap',           
                   gap: '1.5rem',              
                   marginTop: '1.5rem', }}>  
-                {/* <div style={{ textAlign: 'center' }}>
-                  <img
-                    src={process.env.PUBLIC_URL + "/icons/dimmedDetails/Group 176.png"}
-                    alt="Inllustration of keyboard-friendly software"
-                    style={{ width: '85%', maxWidth: '220px', height: 'auto', borderRadius: '8px' }}
-                  />
-                </div>
-
                 <div style={{ textAlign: 'center' }}>
                   <img
-                    src={process.env.PUBLIC_URL + "/icons/dimmedDetails/Group 177.png"}
-                    alt="Inllustration of not cursor reliant software"
-                    style={{ width: '100%', maxWidth: '220px', height: 'auto', borderRadius: '8px' }}
+                    src={process.env.PUBLIC_URL + "/icons/scrambledScript/Group 239.png"}
+                    alt="Avoid example"
+                    style={{ width: '100%', maxWidth: '500px', height: 'auto', borderRadius: '8px' }}
                   />
-                </div> */}
+                </div>
             </div>
           </DropdownRow>
         </div>
@@ -333,8 +294,8 @@ function ScrambledScriptLearn() {
   return (
     <LearnMorePage
       title="Implementing Accessibility:"
-      subtitle="Designing for Color Blindness and More"
-      imagePath={process.env.PUBLIC_URL + "/icons/color-blindness-illustration.png"}
+      subtitle="Designing for Dyslexia and More"
+      imagePath={process.env.PUBLIC_URL + "/icons/scrambledScript/scrambled-script-illustration.png"}
       content={content}
     />
   );
