@@ -99,6 +99,8 @@ function ScrambledScriptLearn() {
               >
                 {dir === 'left' ? (
                   <svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true">
+                    <title>Previous mode</title>
+                    <desc>Arrow pointing left to go to the previous mode.</desc>
                     <path
                       d="M14.5 5L8.5 11L14.5 17"
                       fill="none"
@@ -110,6 +112,8 @@ function ScrambledScriptLearn() {
                   </svg>
                 ) : (
                   <svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true">
+                    <title>Next mode</title>
+                    <desc>Arrow pointing right to go to the next mode.</desc>
                     <path
                       d="M9.5 5L15.5 11L9.5 17"
                       fill="none"
@@ -196,7 +200,7 @@ function ScrambledScriptLearn() {
                 <div style={{ textAlign: 'center' }}>
                   <img
                     src={process.env.PUBLIC_URL + "/icons/scrambledScript/Group 118.png"}
-                    alt="Avoid example and Instead example"
+                    alt="Comparison of the text House without a house icon and text with a house icon"
                     style={{ width: '100%', maxWidth: '600px', height: 'auto', borderRadius: '8px' }}
                   />
                 </div>
@@ -217,7 +221,7 @@ function ScrambledScriptLearn() {
                 <div style={{ textAlign: 'center' }}>
                   <img
                     src={process.env.PUBLIC_URL + "/icons/scrambledScript/Group 236.png"}
-                    alt="Zoom-in icon example one"
+                    alt="Comparison of long text versus condensed and easy to understand text."
                     style={{ width: '100%', maxWidth: '600px', height: 'auto', borderRadius: '8px' }}
                   />
                 </div>
@@ -235,7 +239,7 @@ function ScrambledScriptLearn() {
                 <div style={{ textAlign: 'center' }}>
                   <img
                     src={process.env.PUBLIC_URL + "/icons/scrambledScript/Group 237.png"}
-                    alt="Image from webstyleguide.com"
+                    alt="Comparison of crowded text versus text with paragraphs and ample whitespace."
                     style={{ width: '100%', maxWidth: '600px', height: 'auto', borderRadius: '5px' }}
                   />
                 </div>
@@ -256,7 +260,7 @@ function ScrambledScriptLearn() {
                 <div style={{ textAlign: 'center' }}>
                   <img
                     src={process.env.PUBLIC_URL + "/icons/scrambledScript/Group 238.png"}
-                    alt="Avoid example"
+                    alt="Comparison of low-contrast font versus high-contrast font"
                     style={{ width: '100%', maxWidth: '500px', height: 'auto', borderRadius: '8px' }}
                   />
                 </div>
@@ -278,7 +282,7 @@ function ScrambledScriptLearn() {
                 <div style={{ textAlign: 'center' }}>
                   <img
                     src={process.env.PUBLIC_URL + "/icons/scrambledScript/Group 239.png"}
-                    alt="Avoid example"
+                    alt="Avoid serif fonts, low contrast fonts, small font sizes, or center and right-aligned text. Use sans-serif fonts, high contrast fonts, larger font sizes, and left-aligned text"
                     style={{ width: '100%', maxWidth: '500px', height: 'auto', borderRadius: '8px' }}
                   />
                 </div>

@@ -114,8 +114,8 @@ const ScrambledScriptGame = () =>{
     const word_colors = ["font", "bead", "boat", "bag", "ball", "tag", "hat", "bed", "tap"];
     const dsy_colors = ["heq", "peaq", "fonq", "qruz", "yat", "peq", "pepy", "fysn", "pirq"];    
 
-    const gameKeyMessage3_4 = "Controls Key:<br>Left Mouse Button = Pop Balloons<br><br>Game Key:<br>R = Red<br>G = Green<br>Y = Yellow";
-    const gameKeyMessage1_2 = "Controls Key:<br>Left Mouse Button = Pop Balloons";
+    // const gameKeyMessage3_4 = "Controls Key:<br>Left Mouse Button = Pop Balloons<br><br>Game Key:<br>R = Red<br>G = Green<br>Y = Yellow";
+    // const gameKeyMessage1_2 = "Controls Key:<br>Left Mouse Button = Pop Balloons";
     const numBalls = 9;
     const velocity = 1; // fixed ball velocity
     const { width, height } = svgRef.current.getBoundingClientRect(); // getBoundingClientRect to get initial rendered size of canvas
@@ -224,7 +224,13 @@ const ScrambledScriptGame = () =>{
             group.setAttribute('transform', `translate(${x}, ${y})`); // to help move balls
             group.setAttribute('tabindex', '0'); // make balls tab-able
             group.setAttribute('role', 'button'); // announce that this is a button to screen readers
-            group.setAttribute('aria-label', `${colors_2[i]} ball`);
+            // group.setAttribute('aria-label', `${colors_2[i]} ball`);
+            if (roundNumber === ROUND_1 || roundNumber === ROUND_3) {
+              group.setAttribute('aria-label', `${word_colors[i]} ball`);
+            }
+            else{
+              group.setAttribute('aria-label', `${dsy_colors[i]} ball`);
+            }
 
             //BALL
             const ball = document.createElementNS('http://www.w3.org/2000/svg', 'circle');  // Create the circle
@@ -351,7 +357,7 @@ const ScrambledScriptGame = () =>{
             <Col className="text-end"><h3 id="playerScore">Player: {playerScore}</h3></Col>
             <Col>
               {/* Trigger game ending when time bar reaches 0! */}
-              <CountdownTimer initialTime={10} onComplete={() => stopGameRef.current()}/> 
+              <CountdownTimer initialTime={30} onComplete={() => stopGameRef.current()}/> 
             </Col>
             <Col className="text-start"><h3 id="computerScore">Computer: {computerScore}</h3></Col>
           </Row>
