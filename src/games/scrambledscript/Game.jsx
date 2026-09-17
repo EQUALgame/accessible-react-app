@@ -254,7 +254,7 @@ const ScrambledScriptGame = () =>{
 
             // IMAGE
             const image = document.createElementNS("http://www.w3.org/2000/svg", "image");
-            image.setAttribute("href", `/icons/scrambledScript/${word_colors[i]}.svg`);
+            image.setAttribute("href",`${process.env.PUBLIC_URL}/icons/scrambledScript/${word_colors[i]}.svg`);
             image.setAttribute("x", -size / 2);
             image.setAttribute("y", -size);
             image.setAttribute("width", size);
