@@ -13,6 +13,8 @@ import tieImage from '../../assets/tie.png';
 import GameShell from '../GameShell';
 import './game.css';
 import { HiColorSwatch } from 'react-icons/hi';
+import popbat from '../../assets/scrambledscriptaudio/popbat.mp3';
+
 
 
 const ScrambledScriptGame = () =>{
@@ -35,6 +37,14 @@ const ScrambledScriptGame = () =>{
 
 // NEW TESTING STATES
 //
+
+//new audio
+  const popbatAudio = new Audio(popbat);
+
+  const playSound = () => {
+      popbatAudio.currentTime = 0;
+      popbatAudio.play();
+  };
 
   // refs for HTML elements
   const svgRef = useRef(null);
@@ -192,12 +202,19 @@ const ScrambledScriptGame = () =>{
     function resetGame() {
         setTargetColor();
         createBalls();
+        playSound();
         // potentially set a wait here!
     }
 
     function setTargetColor() { // for the game, pick random target color that isn't yellow
         targetColor = colors_2[Math.floor(Math.random() * colors_2.length)];
         targetColorTextRef.current.textContent = `Pop ${targetColor}!`; // do we want this text to be colored according to the target color?
+        
+        // popbatAudio.currentTime = 0;
+        // popbatAudio.play();
+        // if (targetColor === 'COLOR1') {
+        //   popbatAudio.play();
+        // }
     }
 
     /************** 
@@ -330,6 +347,11 @@ const ScrambledScriptGame = () =>{
     
         requestAnimationFrame(moveBalls);
     }
+
+    
+
+
+    
 
     /************** 
     GAME LOOP 
