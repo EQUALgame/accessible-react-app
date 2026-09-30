@@ -12,9 +12,10 @@ import { useNavigate, useParams } from 'react-router-dom';
 function ScrambledScriptInstructionPage() {
   // Instruction content for Round 1
   const instructions = [
-    "In this round, you will have 30 seconds to pop as many red or green balloons as possible.",
-    "You will see instructions to pop either a red or green balloon displayed underneath the time bar.",
-    "Popping the correct color increases your score, while popping the incorrect color decreases your score and increases the computer's.",
+    "In this round, you will have 30 seconds to pop as many balls as possible.",
+    "You will see and hear instructions to pop a ball with a specific word.",
+    "Popping the correct word increases your score, while popping the incorrect word decreases your score and increases the computer’s.",
+    <strong>Please make sure your computer volume is on.</strong>,
     "Click the arrow to begin!"
   ];
 
