@@ -4,6 +4,7 @@ import { HashRouter, Link, Route, Routes } from 'react-router-dom';
 import ColorClashIcon from '../../components/icons/ColorClashIcon.jsx';
 import SilentSurfingIcon from '../../components/icons/SilentSurfingIcon.jsx';
 import DimmedDetailsIcon from '../../components/icons/DimmedDetailsIcons.jsx';
+import Footer from '../../components/Footer';
 import ColorClashPage from '../ColorClash/ColorClashPage';
 import ColorClashRound1InstructionPage from '../ColorClash/ColorClashRound1InstructionPage';
 import ColorClashRound2InstructionPage from '../ColorClash/ColorClashRound2InstructionPage';
@@ -119,7 +120,7 @@ function V3Experience() {
                 style={{ minHeight: '48px', maxWidth: '100%', whiteSpace: 'normal' }}
                 onClick={() => setStage('pretest')}
               >
-                Let's go
+                <b>Let's Begin </b>😊
               </button>
             </section>
           )}
@@ -197,6 +198,8 @@ function V3Experience() {
           )}
         </Container>
       </main>
+
+      <Footer />
     </div>
   );
 }
