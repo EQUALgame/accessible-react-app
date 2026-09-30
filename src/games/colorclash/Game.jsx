@@ -99,7 +99,7 @@ const ColorblindGame = () =>{
     const RED_LABEL = 'R'; const GREEN_LABEL = 'G'; const YELLOW_LABEL = 'Y';
     const gameKeyMessage3_4 = "Controls Key:<br>Left Mouse Button = Pop Balloons<br><br>Game Key:<br>R = Red<br>G = Green<br>Y = Yellow";
     const gameKeyMessage1_2 = "Controls Key:<br>Left Mouse Button = Pop Balloons";
-    const colors_2 = [RED, GREEN]   // never actually try to pop yellow balls
+    const colors_3 = [RED, GREEN, YELLOW]  
     const numBalls = 9;
     const velocity = 1; // fixed ball velocity
     const { width, height } = svgRef.current.getBoundingClientRect(); // getBoundingClientRect to get initial rendered size of canvas
@@ -184,7 +184,7 @@ const ColorblindGame = () =>{
     }
 
     function setTargetColor() { // for the game, pick random target color that isn't yellow
-        targetColor = colors_2[Math.floor(Math.random() * colors_2.length)];
+        targetColor = colors_3[Math.floor(Math.random() * colors_3.length)];
         targetColorTextRef.current.textContent = `Pop ${targetColor}!`; // do we want this text to be colored according to the target color?
     }
 
@@ -329,7 +329,7 @@ const ColorblindGame = () =>{
             <Col className="text-end"><h3 id="playerScore">Player: {playerScore}</h3></Col>
             <Col>
               {/* Trigger game ending when time bar reaches 0! */}
-              <CountdownTimer initialTime={10} onComplete={() => stopGameRef.current()}/> 
+              <CountdownTimer initialTime={30} onComplete={() => stopGameRef.current()}/> 
             </Col>
             <Col className="text-start"><h3 id="computerScore">Computer: {computerScore}</h3></Col>
           </Row>

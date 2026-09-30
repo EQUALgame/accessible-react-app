@@ -61,13 +61,13 @@ export default function DimmedDetailsScoreboard() {
             ))}
           </Row>
 
-          <Row style={{padding: '40px'}}>
+          {/* <Row style={{padding: '40px'}}>
             <Col className='text-end'>
               <Button variant="link" size="lg" style={{color: 'black'}} onClick={() => navigate(`/dimmed-details/learn-more`)}>
                 <FaArrowRightLong size={30}/>
               </Button>
             </Col>
-          </Row>
+          </Row> */}
         </div>
       </Container>
     </GameShell>

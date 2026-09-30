@@ -61,13 +61,13 @@ export default function ColorBlindScoreboard() {
             ))}
           </Row>
 
-          <Row style={{padding: '40px'}}>
+          {/* <Row style={{padding: '40px'}}>
             <Col className='text-end'>
               <Button variant="link" size="lg" style={{color: 'black'}} onClick={() => navigate(`/color-clash/learn-more`)}>
                 <FaArrowRightLong size={30}/>
               </Button>
             </Col>
-          </Row>
+          </Row> */}
         </div>
       </Container>
     </GameShell>
