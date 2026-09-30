@@ -14,7 +14,7 @@ import HesitantHoverIcon from '../components/icons/HesitantHoverIcon.jsx';
 import FracturedFocusIcon from '../components/icons/FracturedFocusIcon.jsx';
 import { Link } from 'react-router-dom';
 
-const categories = ['All', 'Vision', 'Dexterity', 'Auditory', 'Cognitive'];
+const categories = ['Vision', 'Dexterity', 'Auditory', 'Cognitive', 'All'];
 
 const games = [
   {
@@ -67,7 +67,7 @@ const games = [
   },
   {
     title: 'Scrambled Script',
-    category: 'Dexterity',
+    category: 'Cognitive',
     description: 'Accessibility for Dyslexia and more',
     route: '/scrambled-script',
     Icon: ScrambledScriptIcon,

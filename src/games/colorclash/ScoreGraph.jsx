@@ -1,5 +1,7 @@
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from 'recharts';
 
+const zeroMarkerSize = (value) => (value === 0 ? 3 : undefined);
+
 export default function ScoreChart({ data }) { // had to store separate to avoid build storage issues
   return (
     <ResponsiveContainer width="100%" height={300}>
@@ -11,8 +13,8 @@ export default function ScoreChart({ data }) { // had to store separate to avoid
         <XAxis dataKey="name" />
         <YAxis allowDecimals={false} />
         <Tooltip />
-        <Bar dataKey="Player" fill="#F95F62" />
-        <Bar dataKey="Computer" fill="#5B9AC8" />
+        <Bar dataKey="Player" fill="#F95F62" minPointSize={zeroMarkerSize} isAnimationActive={false} />
+        <Bar dataKey="Computer" fill="#5B9AC8" minPointSize={zeroMarkerSize} isAnimationActive={false} />
       </BarChart>
     </ResponsiveContainer>
   );
