@@ -47,6 +47,37 @@
   background-color: #d5edff;          /* Hover */
 }
 
+.game-category-filter {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem 1.5rem;
+}
+
+.game-category-filter__button {
+  border: 0;
+  border-bottom: 3px solid transparent;
+  background: transparent;
+  color: #273c84;
+  cursor: pointer;
+  font-weight: 600;
+  padding: 0.5rem 0.25rem;
+}
+
+.game-category-filter__button:hover {
+  border-bottom-color: #78a9cf;
+}
+
+.game-category-filter__button.is-selected {
+  border-bottom-color: #273c84;
+  font-weight: 700;
+}
+
+.game-category-filter__button:focus-visible {
+  outline: 3px solid #f0ad4e;
+  outline-offset: 3px;
+}
+
 /* --- NEW: standardized card body & icon box --- */
 .game-card-body {
   display: flex;

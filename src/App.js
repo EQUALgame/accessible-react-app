@@ -3,6 +3,7 @@ import React from 'react';
 import { HashRouter, Routes, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ScrollToTop from "./components/ScrollToTop";
+import V3HomePage from './pages/V3/V3HomePage';
 
 import HomePage from './pages/HomePage';
 
@@ -55,6 +56,12 @@ import SilentSurfingLearnPage from './pages/learn_more/SilentSurfingLearnPage';
 import HesitantHoverLearnPage from './pages/learn_more/HesitantHoverLearnPage';
 
 function App() {
+  const isV3 = window.location.pathname.endsWith("/v3");
+
+  if (isV3) {
+    return <V3HomePage />;
+  }
+
   return (
     <HashRouter>
       <ScrollToTop />
