@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Container, Card, Row, Col } from 'react-bootstrap';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -20,6 +20,11 @@ import { Link } from 'react-router-dom';
  * Displays the main landing page with game cards and hero section
  */
 function HomePage() {
+  const [selectedCategory, setSelectedCategory] = useState('All');
+  const categories = ['Vision', 'Dexterity', 'Auditory', 'Cognitive', 'All'];
+  const isCategoryVisible = (category) =>
+    selectedCategory === 'All' || selectedCategory === category;
+
   return (
     <div>
       <Header />
@@ -68,9 +73,22 @@ function HomePage() {
       {/* Games Grid Section */}
       <section className="py-5">
         <Container>
+          <div className="game-filters mb-4" role="group" aria-label="Filter games by category">
+            {categories.map((category) => (
+              <button
+                key={category}
+                type="button"
+                className={`game-filter-button${selectedCategory === category ? ' is-selected' : ''}`}
+                aria-pressed={selectedCategory === category}
+                onClick={() => setSelectedCategory(category)}
+              >
+                {category}
+              </button>
+            ))}
+          </div>
           <Row className="g-4 justify-content-center">
             {/* Color Clash */}
-            <Col lg={4} md={6}>
+            {isCategoryVisible('Vision') && <Col lg={4} md={6}>
               <Card
                 as={Link}
                 to="/color-clash"
@@ -86,10 +104,10 @@ function HomePage() {
                   </div>
                 </Card.Body>
               </Card>
-            </Col>
+            </Col>}
 
             {/* Dimmed Details */}
-            <Col lg={4} md={6}>
+            {isCategoryVisible('Vision') && <Col lg={4} md={6}>
               <Card
                 as={Link}
                 to="/dimmed-details"
@@ -105,10 +123,10 @@ function HomePage() {
                   </div>
                 </Card.Body>
               </Card>
-            </Col>
+            </Col>}
 
             {/* Sightless Search */}
-            <Col lg={4} md={6}>
+            {isCategoryVisible('Vision') && <Col lg={4} md={6}>
               <Card
                 as={Link}
                 to="/sightless-search"
@@ -124,11 +142,11 @@ function HomePage() {
                   </div>
                 </Card.Body>
               </Card>
-            </Col>
+            </Col>}
           
 
             {/* Silent Surfing */}
-            <Col lg={4} md={6}>
+            {isCategoryVisible('Auditory') && <Col lg={4} md={6}>
               <Card
                 as={Link}
                 to="/silent-surfing"
@@ -145,10 +163,10 @@ function HomePage() {
                 </Card.Body>
               
               </Card>
-            </Col>
+            </Col>}
 
             {/* Touch Screen */}
-            <Col lg={4} md={6}>
+            {isCategoryVisible('Dexterity') && <Col lg={4} md={6}>
               <motion.div initial="rest" whileHover="hover" whileFocus="hover">
                   <Card className="game-card h-100 shadow-sm border-0">
                     <Card.Body className="p-3 d-flex align-items-center">
@@ -162,11 +180,11 @@ function HomePage() {
                     </Card.Body>
                   </Card>
                 </motion.div>
-            </Col>
+            </Col>}
             
 
             {/* Hesitant Hover */}
-            <Col lg={4} md={6}>
+            {isCategoryVisible('Dexterity') && <Col lg={4} md={6}>
               <Card
                 as={Link}
                 to="/hesitant-hover"
@@ -183,12 +201,12 @@ function HomePage() {
                 </Card.Body>
                 
               </Card>
-            </Col>
+            </Col>}
             
           
 
             {/* Scrambled Script */}
-            <Col lg={4} md={6}>
+            {isCategoryVisible('Cognitive') && <Col lg={4} md={6}>
               <motion.div initial="rest" whileHover="hover" whileFocus="hover">
                 <Card 
                   as={Link}
@@ -206,11 +224,11 @@ function HomePage() {
                   </Card.Body>
                 </Card>
               </motion.div>
-            </Col>
+            </Col>}
           
 
             {/* ADHD */}
-            <Col lg={4} md={6}>
+            {isCategoryVisible('Cognitive') && <Col lg={4} md={6}>
               <Card
                 className="game-card h-100 shadow-sm border-0"
               >
@@ -225,7 +243,7 @@ function HomePage() {
                 </Card.Body>
                 
               </Card>
-            </Col>
+            </Col>}
             
 
             
