@@ -61,13 +61,13 @@ export default function ScrambledScriptScoreboard() {
             ))}
           </Row>
 
-          {/* <Row style={{padding: '40px'}}>
+          <Row style={{padding: '40px'}}>
             <Col className='text-end'>
               <Button variant="link" size="lg" style={{color: 'black'}} onClick={() => navigate(`/scrambled-script/learn-more`)}>
                 <FaArrowRightLong size={30}/>
               </Button>
             </Col>
-          </Row> */}
+          </Row>
         </div>
       </Container>
     </GameShell>

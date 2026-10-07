@@ -3,6 +3,7 @@ import React from 'react';
 import { HashRouter, Routes, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ScrollToTop from "./components/ScrollToTop";
+import V3HomePage from './pages/V3/V3HomePage';
 
 import HomePage from './pages/HomePage';
 import K8Page from './pages/K8Page';
@@ -52,6 +53,8 @@ import SilentSurfingRound1InstructionPage from './pages/SilentSurfing/SilentSurf
 import SilentSurfingRound2InstructionPage from './pages/SilentSurfing/SilentSurfingRound2InstructionPage';
 import SilentSurfingRound3InstructionPage from './pages/SilentSurfing/SilentSurfingRound3InstructionPage';
 import SilentSurfingRound4InstructionPage from './pages/SilentSurfing/SilentSurfingRound4InstructionPage';
+import SilentSurfingGame from './games/silentSurfing/Game_new';
+import SilentSurfingScores from './games/silentSurfing/Scores_new';
 
 import HesitantHoverPage from './pages/HesitantHover/HesitantHoverPage';
 import HesitantHoverRound1InstructionPage from './pages/HesitantHover/HesitantHoverRound1InstructionPage';
@@ -67,6 +70,12 @@ import HesitantHoverLearnPage from './pages/learn_more/HesitantHoverLearnPage';
 import { ImPieChart } from 'react-icons/im';
 
 function App() {
+  const isV3 = window.location.pathname.endsWith('/v3');
+
+  if (isV3) {
+    return <V3HomePage />;
+  }
+
   return (
     <HashRouter>
       <ScrollToTop />
@@ -127,6 +136,8 @@ function App() {
         <Route path="/silent-surfing/round-3" element={<SilentSurfingRound3InstructionPage />} />
         <Route path="/silent-surfing/round-4" element={<SilentSurfingRound4InstructionPage />} />
         <Route path="/silent-surfing/learn-more" element={<SilentSurfingLearnPage />} />
+        <Route path="/silent-surfing-play/game/:round" element={<SilentSurfingGame />} />
+        <Route path="/silent-surfing-play/recap" element={<SilentSurfingScores />} />
 
         {/* Hesitant Hover */}
         <Route path="/hesitant-hover" element={<HesitantHoverPage />} />

@@ -47,6 +47,40 @@
   background-color: #d5edff;          /* Hover */
 }
 
+.game-filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.game-filter-button {
+  border: 1px solid #b7c8d8;
+  border-radius: 999px;
+  background-color: #fff;
+  color: #212529;
+  padding: 0.4rem 1rem;
+  cursor: pointer;
+}
+
+.game-filter-button:hover {
+  background-color: #f4faff;
+}
+
+.game-filter-button.is-selected {
+  border-color: #0d6efd;
+  background-color: #e3f2fd;
+  color: #084298;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.game-filter-button:focus-visible {
+  outline: 3px solid #0d6efd;
+  outline-offset: 3px;
+}
+
 /* --- NEW: standardized card body & icon box --- */
 .game-card-body {
   display: flex;
