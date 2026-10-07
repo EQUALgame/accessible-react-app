@@ -85,6 +85,7 @@ function SilentSurfingPage() {
               </div>
 
               <Button
+                as={Link} to="/silent-surfing/round-1"
                 variant="primary"
                 size="lg"
                 className="mt-3 px-4 py-2 fw-semibold"

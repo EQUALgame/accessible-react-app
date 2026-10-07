@@ -1,5 +1,6 @@
 import React from 'react';
 import InstructionPage from '../../components/InstructionPage';
+import { useNavigate } from 'react-router-dom';
 
 
 /**
@@ -8,6 +9,8 @@ import InstructionPage from '../../components/InstructionPage';
  * Uses the reusable InstructionPage component
  */
 function SilentSurfingInstructionPage() {
+  const navigate = useNavigate();
+
   // Instruction content for Round 1
   const instructions = [
     "In this round, you will have 30 seconds to pop as many red or green balloons as possible.",
@@ -18,19 +21,17 @@ function SilentSurfingInstructionPage() {
 
   // Handle start game action
   const handleStartGame = () => {
-    console.log("Starting Silent Surfing Round 1...");
-    // TODO: Navigate to actual game page
+    navigate('/silent-surfing-play/game/1');
   };
 
   return (
     <InstructionPage
       title="Silent Surfing - Round 1/4"
       instructions={instructions}
-    //   imagePath=".png" // Path to your PNG image
+      imagePath={process.env.PUBLIC_URL + "/icons/silentSurfing/silentSurfingRound1.png"}
       onStartGame={handleStartGame}
     />
   );
 }
 
 export default SilentSurfingInstructionPage;
-
