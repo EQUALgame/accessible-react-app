@@ -1,4 +1,19 @@
-import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid, Rectangle } from 'recharts';
+
+function ScoreBarShape(props) {
+  if (props.value !== 0) {
+    return <Rectangle {...props} />;
+  }
+
+  const markerHeight = 3;
+  return (
+    <Rectangle
+      {...props}
+      y={props.y - markerHeight}
+      height={markerHeight}
+    />
+  );
+}
 
 export default function ScoreChart({ data }) { // had to store separate to avoid build storage issues
   return (
@@ -11,8 +26,8 @@ export default function ScoreChart({ data }) { // had to store separate to avoid
         <XAxis dataKey="name" />
         <YAxis allowDecimals={false} />
         <Tooltip />
-        <Bar dataKey="Player" fill="#F95F62" />
-        <Bar dataKey="Computer" fill="#5B9AC8" />
+        <Bar dataKey="Player" fill="#F95F62" shape={ScoreBarShape} />
+        <Bar dataKey="Computer" fill="#5B9AC8" shape={ScoreBarShape} />
       </BarChart>
     </ResponsiveContainer>
   );
