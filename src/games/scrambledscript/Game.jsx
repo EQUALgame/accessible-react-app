@@ -13,8 +13,16 @@ import tieImage from '../../assets/tie.png';
 import GameShell from '../GameShell';
 import './game.css';
 import { HiColorSwatch } from 'react-icons/hi';
-import popbat from '../../assets/scrambledscriptaudio/popbat.mp3';
-
+import batAudio from '../../assets/scrambledscriptaudio/pop_bat.mp3';
+import fontAudio from '../../assets/scrambledscriptaudio/pop_font.mp3';
+import beadAudio from '../../assets/scrambledscriptaudio/pop_bead.mp3';
+import boatAudio from '../../assets/scrambledscriptaudio/pop_boat.mp3';
+import bagAudio from '../../assets/scrambledscriptaudio/pop_bag.mp3';
+import ballAudio from '../../assets/scrambledscriptaudio/pop_ball.mp3';
+import tagAudio from '../../assets/scrambledscriptaudio/pop_tag.mp3';
+import hatAudio from '../../assets/scrambledscriptaudio/pop_hat.mp3';
+import bedAudio from '../../assets/scrambledscriptaudio/pop_bed.mp3';
+import tapAudio from '../../assets/scrambledscriptaudio/pop_tap.mp3';
 
 
 const ScrambledScriptGame = () =>{
@@ -35,16 +43,24 @@ const ScrambledScriptGame = () =>{
   const imgRef = useRef(null);
   const MODAL_COLOR = '#B6D5EBBF'; 
 
+
+  //audio mapped
+  const popAudios = {
+    bat: batAudio,
+    font: fontAudio,
+    bead: beadAudio,
+    boat: boatAudio,
+    bag: bagAudio,
+    ball: ballAudio,
+    tag: tagAudio,
+    hat: hatAudio,
+    bed: bedAudio,
+    tap: tapAudio
+  };
+  
+
 // NEW TESTING STATES
 //
-
-//new audio
-  const popbatAudio = new Audio(popbat);
-
-  const playSound = () => {
-      popbatAudio.currentTime = 0;
-      popbatAudio.play();
-  };
 
   // refs for HTML elements
   const svgRef = useRef(null);
@@ -200,21 +216,37 @@ const ScrambledScriptGame = () =>{
     }
 
     function resetGame() {
+       console.trace("resetGame called");
+
         setTargetColor();
         createBalls();
-        playSound();
         // potentially set a wait here!
     }
 
     function setTargetColor() { // for the game, pick random target color that isn't yellow
         targetColor = colors_2[Math.floor(Math.random() * colors_2.length)];
         targetColorTextRef.current.textContent = `Pop ${targetColor}!`; // do we want this text to be colored according to the target color?
-        
-        // popbatAudio.currentTime = 0;
-        // popbatAudio.play();
-        // if (targetColor === 'COLOR1') {
-        //   popbatAudio.play();
-        // }
+
+        playSound(targetColor);
+    
+    }
+
+    
+    function playSound(targetColor) {
+      const mappedAudio = popAudios[targetColor];
+
+      if (!mappedAudio) return;
+
+      const sound = new Audio(mappedAudio);
+      console.log("Playing sound for target color:", targetColor);
+
+      sound.play().catch((error) => {
+        if (error.name === "NotAllowedError") {
+          console.log("Audio is waiting for user interaction.");
+        } else {
+          console.error("Audio playback failed:", error);
+        }
+      });
     }
 
     /************** 
@@ -358,9 +390,12 @@ const ScrambledScriptGame = () =>{
     ***************/
     resetGameRef.current = resetGame; // setting funct
     stopGameRef.current = stopGame;
-    setTargetColor();
-    createBalls();
+    console.log("game loop called");
+    // setTargetColor();
+    // createBalls();
     moveBalls(); // Start movement
+    console.log("move balls called");
+    
 
 
   }, []);
@@ -379,7 +414,7 @@ const ScrambledScriptGame = () =>{
             <Col className="text-end"><h3 id="playerScore">Player: {playerScore}</h3></Col>
             <Col>
               {/* Trigger game ending when time bar reaches 0! */}
-              <CountdownTimer initialTime={30} onComplete={() => stopGameRef.current()}/> 
+              <CountdownTimer initialTime={10} onComplete={() => stopGameRef.current()}/> 
             </Col>
             <Col className="text-start"><h3 id="computerScore">Computer: {computerScore}</h3></Col>
           </Row>
