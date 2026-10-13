@@ -67,6 +67,7 @@ function ScrambledScriptPage() {
               </div>
 
               <Button
+                as={Link} to="/scrambled-script/round-1"
                 size="lg"
                 className="mt-3 px-4 py-2 fw-semibold"
                 style={{
