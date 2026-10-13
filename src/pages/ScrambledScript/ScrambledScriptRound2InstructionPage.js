@@ -11,10 +11,9 @@ import { useNavigate, useParams } from 'react-router-dom';
 function ScrambledScriptInstructionPage() {
   // Instruction content for Round 2
   const instructions = [
-    "In this round, you will have 30 seconds to pop as many red or green balloons as possible.",
-    "You will see instructions to pop either a red or green balloon displayed underneath the time bar.",
-    "Popping the correct color increases your score, while popping the incorrect color decreases your score and increases the computer's.",
-    "Click the arrow to begin!"
+    "In this round, you will play just as you did last round, once again having 30 seconds to pop as many balls as possible.",
+    "This time, the words on the balls are rewritten in a way that simulates the challenges that people with dyslexia can have when trying to read text.",
+    "Click the arrow to begin!",
   ];
 
   const navigate = useNavigate();

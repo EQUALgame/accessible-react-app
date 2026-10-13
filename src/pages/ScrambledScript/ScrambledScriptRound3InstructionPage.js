@@ -4,16 +4,15 @@ import { useNavigate, useParams } from 'react-router-dom';
 
 
 /**
- * ColorClashInstructionPage Component
- * Round 1/4 instruction page for Color Clash
+ * ScrambledScriptInstructionPage Component
+ * Round 3/4 instruction page for Scrambled Script
  * Uses the reusable InstructionPage component
  */
 function ScrambledScriptInstructionPage() {
-  // Instruction content for Round 1
+  // Instruction content for Round 3
   const instructions = [
-    "In this round, you will have 30 seconds to pop as many red or green balloons as possible.",
-    "You will see instructions to pop either a red or green balloon displayed underneath the time bar.",
-    "Popping the correct color increases your score, while popping the incorrect color decreases your score and increases the computer's.",
+    "In this round, you will play just as you did in round one, but each ball will include a word with a corresponding picture.",
+    <strong>Please make sure your computer volume is on.</strong>,
     "Click the arrow to begin!"
   ];
 
