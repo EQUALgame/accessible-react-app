@@ -63,7 +63,7 @@ export default function ColorBlindScoreboard() {
 
           <Row style={{padding: '40px'}}>
             <Col className='text-end'>
-              <Button variant="link" size="lg" style={{color: 'black'}} onClick={() => navigate(`/color-clash/learn-more`)}>
+              <Button variant="link" size="lg" style={{color: 'black'}} onClick={() => navigate(`/`)}>
                 <FaArrowRightLong size={30}/>
               </Button>
             </Col>

@@ -63,7 +63,7 @@ export default function DimmedDetailsScoreboard() {
 
           <Row style={{padding: '40px'}}>
             <Col className='text-end'>
-              <Button variant="link" size="lg" style={{color: 'black'}} onClick={() => navigate(`/dimmed-details/learn-more`)}>
+              <Button variant="link" size="lg" style={{color: 'black'}} onClick={() => navigate(`/`)}>
                 <FaArrowRightLong size={30}/>
               </Button>
             </Col>
