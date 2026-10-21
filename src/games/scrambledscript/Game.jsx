@@ -417,7 +417,7 @@ const ScrambledScriptGame = () =>{
             <Col className="text-end"><h3 id="playerScore">Player: {playerScore}</h3></Col>
             <Col>
               {/* Trigger game ending when time bar reaches 0! */}
-              <CountdownTimer initialTime={10} onComplete={() => stopGameRef.current()}/> 
+              <CountdownTimer initialTime={30} onComplete={() => stopGameRef.current()}/> 
             </Col>
             <Col className="text-start"><h3 id="computerScore">Computer: {computerScore}</h3></Col>
           </Row>
