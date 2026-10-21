@@ -77,7 +77,9 @@ const ScrambledScriptGame = () =>{
 
 
   useEffect(() => {   // resizeObserver to update SVG dimensions for screen orientation changes
+    let first = true;   // NEW
     const observer = new ResizeObserver(() => {
+      if (first) { first = false; return; } 
       if (!svgRef.current) return;  // ensure svgRef available
       
       const rect = svgRef.current.getBoundingClientRect();
@@ -391,6 +393,7 @@ const ScrambledScriptGame = () =>{
     resetGameRef.current = resetGame; // setting funct
     stopGameRef.current = stopGame;
     console.log("game loop called");
+    resetGame(); // Initialize game
     // setTargetColor();
     // createBalls();
     moveBalls(); // Start movement
