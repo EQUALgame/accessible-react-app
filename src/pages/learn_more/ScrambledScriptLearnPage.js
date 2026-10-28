@@ -181,7 +181,7 @@ function ScrambledScriptLearn() {
           Improving Accessibility for Dyslexia
         </h2>
         <p style={{ textAlign: 'center', maxWidth: '820px', margin: '0 auto 1.6rem' }}>
-          Users with dyslexia may not be able to view the world they way others do. Computer programmers should make their software more accessible for such users by following these guidelines:
+          Users with dyslexia may have trouble reading and understanding complex text, making it hard to navigate through a website. Designers and developers should make their interfaces more accessible for such users by following these guidelines.
         </p>
 
         <div style={{ maxWidth: '920px', margin: '0 auto' }}>
