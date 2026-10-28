@@ -58,7 +58,9 @@ const AuditoryGame = () => {
 
 
   useEffect(() => {   // resizeObserver to update SVG dimensions for screen orientation changes
+    let first = true;   // NEW
     const observer = new ResizeObserver(() => {
+      if (first) { first = false; return; } 
       if (!svgRef.current) return;
 
       const rect = svgRef.current.getBoundingClientRect();
@@ -153,6 +155,7 @@ const AuditoryGame = () => {
     }
 
     function resetGame() {
+      console.trace("resetGame called");
       setTargetColor();
       createBalls();
     }
