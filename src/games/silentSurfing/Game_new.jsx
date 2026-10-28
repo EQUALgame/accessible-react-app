@@ -262,12 +262,11 @@ const AuditoryGame = () => {
     /**************
     GAME LOOP
     ***************/
-    resetGameRef.current = resetGame;
+    resetGameRef.current = resetGame; // setting funct
     stopGameRef.current = stopGame;
-
-    setTargetColor();
-    createBalls();
-    moveBalls();
+    console.log("game loop called");
+    resetGame(); // Initialize game
+    moveBalls(); // Start movement
 
   }, []);
 

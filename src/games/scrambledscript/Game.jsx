@@ -394,12 +394,7 @@ const ScrambledScriptGame = () =>{
     stopGameRef.current = stopGame;
     console.log("game loop called");
     resetGame(); // Initialize game
-    // setTargetColor();
-    // createBalls();
     moveBalls(); // Start movement
-    console.log("move balls called");
-    
-
 
   }, []);
 
