@@ -230,7 +230,6 @@ const ScrambledScriptGame = () =>{
         targetColorTextRef.current.textContent = `Pop ${targetColor}!`; // do we want this text to be colored according to the target color?
 
         playSound(targetColor);
-    
     }
 
     

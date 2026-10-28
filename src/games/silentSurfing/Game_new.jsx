@@ -175,6 +175,8 @@ const AuditoryGame = () => {
           audio.play().catch(err => console.error("Audio play error:", err));
         }
       }
+      console.log("Target color set to:", targetColor);
+
     }
 
     /**************
