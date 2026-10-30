@@ -156,10 +156,6 @@ function SilentSurfingLearn() {
             </>
           );
         })()}
-
-        <p style={{ maxWidth: 780, margin: '2.0rem auto 0', lineHeight: 1.55 }}>
-          Comment: need to update INFO here.
-        </p>
       </section>
 
 
@@ -173,6 +169,7 @@ function SilentSurfingLearn() {
             fontWeight: 800,
             marginBottom: '1.6rem',
             textShadow: '0 1px 1px rgba(0,0,0,0.2)',
+            textAlign: 'center',
           }}
         >
           Improving Accessibility for Deafness
@@ -224,14 +221,6 @@ function SilentSurfingLearn() {
                     style={{ height: '100%', maxHeight: '220px', width: 'auto', borderRadius: '8px' }}
                   />
                 </div>
-
-                <div style={{ textAlign: 'center' }}>
-                  <img
-                    src={process.env.PUBLIC_URL + "/icons/silentSurfing/instead.png"}
-                    alt="Instead example"
-                    style={{ height: '100%', maxHeight: '220px', width: 'auto', borderRadius: '8px' }}
-                  />
-                </div>
             </div>
           </DropdownRow>
 
@@ -254,14 +243,6 @@ function SilentSurfingLearn() {
                     style={{ height: '100%', maxHeight: '220px', width: 'auto', borderRadius: '8px' }}
                   />
                 </div>
-
-                <div style={{ textAlign: 'center' }}>
-                  <img
-                    src={process.env.PUBLIC_URL + "/icons/silentSurfing/volume.png"}
-                    alt="Instead example"
-                    style={{ height: '100%', maxHeight: '220px', width: 'auto', borderRadius: '8px' }}
-                  />
-                </div>
             </div>
           </DropdownRow>
 
@@ -277,7 +258,7 @@ function SilentSurfingLearn() {
   return (
     <LearnMorePage
       title="Implementing Accessibility:"
-      subtitle="Designing for Color Blindness and More"
+      subtitle="Designing for Deafness and More"
       imagePath={process.env.PUBLIC_URL + "/icons/color-blindness-illustration.png"}
       content={content}
     />
