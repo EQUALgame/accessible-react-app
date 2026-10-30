@@ -166,10 +166,99 @@ function SilentSurfingPage() {
       <section id="more-about" className="py-5 border-top">
         <Container className="text-center">
           <h2 className="fw-bold display-6 text-primary mb-4">
-            More About Silent Surfing
+            Universally Designing for Deafness 
           </h2>
-          <p className="fst-italic fs-5" style={{ maxWidth: '1000px', margin: '0 auto' }}>
-            This game shows what it’s like to experience technology without sound. It shows challenges faced by people who are deaf helping us create stronger visual design.
+          <p className="fs-5">
+            Useful for those who are deaf, hard of hearing, or have high, limited language fluency/comprehension, but also helpful in loud public spaces          
+          </p>
+        </Container>
+
+        {/* TABLE + DEFINITIONS */}
+        <Container className="text-center">
+          <table
+            className=" text-center"
+            style={{
+              width: "60%",
+              margin: "0 auto",
+              borderCollapse: "separate",
+              borderSpacing: "12px"
+            }}>
+            <thead>
+              <tr>
+                <th style={{ backgroundColor: "#B6D5EB99", border: "none", width: "33.33%", padding: "12px", fontWeight: "normal", fontStyle: "italic", fontSize: "20px" }}>
+                  Permanent
+                </th>
+
+                <th style={{ backgroundColor: "#B6D5EB99", border: "none", width: "33.33%", padding: "12px", fontWeight: "normal", fontStyle: "italic", fontSize: "20px" }}>
+                  Temporary
+                </th>
+
+                <th style={{ backgroundColor: "#B6D5EB99", border: "none", width: "33.33%", padding: "12px", fontWeight: "normal", fontStyle: "italic", fontSize: "20px" }}>
+                  Situational
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td
+                  style={{
+                    border: "1px solid black",
+                    padding: "12px",
+                    verticalAlign: "top",
+                    width: "33.33%"
+                  }}
+                >
+                  <ul className="text-start mb-0">
+                    <li>Deafness</li>
+                    <li>Auditory Processing Disorder(APD)</li>
+                  </ul>
+                </td>
+
+                <td
+                  style={{
+                    border: "1px solid black",
+                    padding: "12px",
+                    verticalAlign: "top",
+                    width: "33.33%"
+                  }}
+                >
+                  <ul className="text-start mb-0">
+                    <li>Ear infection</li>
+                    <li>Language Barrier</li>
+                  </ul>
+                </td>
+
+                <td
+                  style={{
+                    border: "1px solid black",
+                    padding: "12px",
+                    verticalAlign: "top",
+                    width: "33.33%"
+                  }}
+                >
+                  <ul className="text-start mb-0">
+                    <li>Noisy Environment</li>
+                    <li>Quiet Environment</li>
+                  </ul>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </Container>
+
+
+        <Container className='text-start' style={{ maxWidth: '800px', margin: '0 auto' }}>
+          <p className="fs-5 fw-bold" style={{  color: '#272A79' }}>
+            Types of disabilities:         
+          </p>
+          <p>
+            <strong>Permanent:</strong> A disability that diminishes an individual’s ability to perform tasks at the same capacity that the individual was able to before their condition.
+          </p>
+          <p>
+            <strong>Temporary:</strong> A condition that prevents an individual from performing their activities for a limited period.
+          </p>
+          <p>
+            <strong>Situational:</strong> A temporary limitation in a person’s ability to interact with their environment or technology, caused by a momentary circumstance.          
           </p>
         </Container>
       </section>
