@@ -61,7 +61,7 @@ export default function AuditoryGameScoreboard() {
 
           <Row style={{ padding: '40px' }}>
             <Col className='text-end'>
-              <Button variant="link" size="lg" style={{ color: 'black' }} onClick={() => navigate('/silent-surfing/learn-more')}>
+              <Button variant="link" size="lg" style={{ color: 'black' }} onClick={() => navigate('/silent-surfing')}>
                 <FaArrowRightLong size={30} />
               </Button>
             </Col>

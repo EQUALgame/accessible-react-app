@@ -12,7 +12,7 @@ function ScrambledScriptInstructionPage() {
   // Instruction content for Round 2
   const instructions = [
     "In this round, you will play just as you did last round, once again having 30 seconds to pop as many balls as possible.",
-    "This time, the words on the balls are rewritten in a way that simulates the challenges that people with dyslexia can have when trying to read text.",
+    "This time, the words on the balls are rewritten in a way that demonstrates the challenges that people with dyslexia can have when trying to read text.",
     "Click the arrow to begin!",
   ];
 

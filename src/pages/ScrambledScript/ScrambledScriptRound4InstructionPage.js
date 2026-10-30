@@ -11,7 +11,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 function ScrambledScriptInstructionPage() {
   // Instruction content for Round 4
   const instructions = [
-    "In this round, you will once again experience a simulation of the challenges people with dyslexia can face when reading text, but with the assistance of a picture corresponding to the word included on the ball.",
+    "In this round, you will once again experience a demonstration of the challenges people with dyslexia can face when reading text, but with the assistance of a picture corresponding to the word included on the ball.",
     <strong>Please make sure your computer volume is on.</strong>,
     "Click the arrow to begin!"
   ];
